@@ -5,7 +5,8 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
-
+import authRoutes from "../routes/auth.routes.js";
+import communityRoutes from "../routes/community.routes.js";
 // import routes from 'routes.js';
 
 class Server {
@@ -13,7 +14,8 @@ class Server {
     this.notes();
     this.app = express();
     this.port = process.env.PORT;
-    
+    this.authPath = "/neighbor/v1/auth";
+    this.communityPath = "/neighbor/v1/community";
 
     this.middlewares();
     this.conectDB();
@@ -25,7 +27,8 @@ class Server {
   }
 
   routes() {
-    
+    this.app.use(this.authPath, authRoutes);
+    this.app.use(this.communityPath, communityRoutes);
   }
 
   middlewares() {

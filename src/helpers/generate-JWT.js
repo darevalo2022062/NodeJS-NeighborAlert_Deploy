@@ -5,9 +5,9 @@ export const generateJWT = (uid = '', email = '') => {
         const payload = { uid, email }
         jwt.sign(
             payload,
-            process.env.TOKEN_KEY,
+            process.env.PRIVATE_KEY,
             {
-                expiresIn: '56h'
+                expiresIn: '2h'
             },
             (err, token)=>{
                 err ? (console.log(err),reject('We have a problem to generate the token')) : resolve(token)
