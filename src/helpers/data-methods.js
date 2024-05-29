@@ -25,7 +25,7 @@ export const validateAdmin = async (id) => {
     const user = await User.findById(id);
     if (!user) {throw new Error('User not found')}
     if (!user.status) {throw new Error('User is not active')}
-    if (user.role !== 'ADMIN_ROLE') {throw new Error('User is not an administrator')}
+    if (user.role !== 'ADMIN') {throw new Error('User is not an administrator')}
     const userData = { id: user.id, name: user.name, email: user.email, role: user.role };
     return userData;
 }

@@ -20,3 +20,5 @@ const communitySchema = new Schema({
 }, {
     timestamps: true
 });
+
+export default model('Community', communitySchema);

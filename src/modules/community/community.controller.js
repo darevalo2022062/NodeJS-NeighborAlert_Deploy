@@ -11,38 +11,44 @@ const handleResponse = (res, promise) => {
         });
 };
 
-const validateUserRequest = (req, res) => {
-    const user = isToken(req, res);
-    validateAdmin(user.id);
+const validateUserRequest = async (req, res) => {
+    try {
+        const user = await isToken(req, res);
+        validateAdmin(user._id);
+        return true;    
+    } catch (error) {
+        return res.status(400).json({ error: error.message });
+    }
 }
 
-export const createCommunity = (req, res) => {
-    validateUserRequest(req, res);
+export const createCommunity = async (req, res) => {
     const { name, location, img } = req.body;
+    await validateUserRequest(req, res);
     handleResponse(res, Community.create({ name, location, img }));
 };
 
-export const getCommunities = (req, res) => {
-    validateUserRequest(req, res);
+export const getCommunities = async (req, res) => {
+    await validateUserRequest(req, res);
     handleResponse(res, Community.find({ status: true }));
 };
 
-export const getCommunity = (req, res) => {
-    validateUserRequest(req, res);
+export const getCommunity = async (req, res) => {
     const { id } = req.params;
+    await validateUserRequest(req, res);
     handleResponse(res, Community.findById(id));
 };
 
-export const updateCommunity = (req, res) => {
-    validateUserRequest(req, res);
+export const updateCommunity = async (req, res) => {
     const { id } = req.params;
     const { name, location, img } = req.body;
+    await validateUserRequest(req, res);
     const newData = { name, location, img };
-    handleResponse(res, Community.findByIdAndUpdate(id, newData, { new: true }));
+    // handleResponse(res, Community.findByIdAndUpdate(id, newData, { new: true }));
+    handleResponse(res, Community.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
 };
 
-export const deleteCommunity = (req, res) => {
-    validateUserRequest(req, res);
+export const deleteCommunity = async (req, res) => {
     const { id } = req.params;
+    await validateUserRequest(req, res);
     handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
 };

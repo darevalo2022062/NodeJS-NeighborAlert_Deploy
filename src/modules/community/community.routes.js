@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { validateJWT } from "../../middlewares/validate-jwt";
-import { validateFields } from "../../middlewares/validate-fields";
-import { createCommunity, getCommunities, getCommunity, updateCommunity, deleteCommunity } from "./community.controller";
+import { validateJWT } from "../../middlewares/validate-jwt.js";
+import { validateFields } from "../../middlewares/validate-fields.js";
+import { createCommunity, getCommunities, getCommunity, updateCommunity, deleteCommunity } from "./community.controller.js";
 
 const router = Router();
 

@@ -20,7 +20,7 @@ export const validateJWT = async (req, res, next) => {
       })
     }
 
-    if(!user.estado){
+    if(user.estado === false){
       return res.status(400).json({
         msg: 'Invalid token'
       })

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { validateJWT } from "../../middlewares/validate-jwt";
-import { validateFields } from "../../middlewares/validate-fields";
-import { login, register } from "./auth.controller";
-import { validateExistentEmail, validateEmail, validateCommunity, validatePassword } from "./auth.validators";
+import { validateJWT } from "../middlewares/validate-jwt.js";
+import { validateFields } from "../middlewares/validate-fields.js";
+import { login, register } from "./auth.controller.js";
+import { validateExistentEmail, validateEmail, validateCommunity, validatePassword} from "../helpers/data-methods.js";
 
 const router = Router();
 
@@ -36,3 +36,5 @@ router.post(
     ],
     login
 );
+
+export default router;

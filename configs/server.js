@@ -5,8 +5,8 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
-import authRoutes from "../routes/auth.routes.js";
-import communityRoutes from "../routes/community.routes.js";
+import authRoutes from "../src/auth/auth.routes.js";
+import communityRoutes from "../src/modules/community/community.routes.js";
 // import routes from 'routes.js';
 
 class Server {
