@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "name": "New York City",
+  "location": "United States",
+  "img": "Not found",
+  "status": false,
+  "createdAt": {
+    "$date": "2024-05-29T19:51:05.170Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-29T20:05:39.808Z"
+  },
+  "__v": 0
+}]
