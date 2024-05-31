@@ -16,8 +16,6 @@ router.post(
         check("email", "Email is required").isEmail(),
         check("email").custom(validateExistentEmail),
         check("email").custom(validateEmail),
-        check("pass", "Password is required").not().isEmpty(),
-        check("pass", "Password must be at least 6 characters").isLength({ min: 6 }),
         check("pass").custom(validatePassword),
         // check("img", "Image is required").not().isEmpty(),
         check("idCommunity", "Community is required").not().isEmpty(),
