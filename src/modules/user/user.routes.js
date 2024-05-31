@@ -2,8 +2,8 @@ import { Router } from "express";
 import { check } from "express-validator";
 import {
     getUsers,
-    getUserById,
-    editUser,
+    getUser,
+    updateUser,
     deleteUser,
 } from "./user.controller.js";
 import { validateExistentEmail, validateEmail, validateCommunity, validatePassword} from "../../helpers/data-methods.js";
@@ -19,7 +19,7 @@ router.get(
         check("id", "No es un ID válido").isMongoId(),
         validateFields,
     ],
-    getUserById
+    getUser
 );
 
 router.put(
@@ -29,7 +29,7 @@ router.put(
         check("idCommunity").custom(validateCommunity),
         validateFields,
     ],
-    editUser
+    updateUser
 );
 
 router.delete(
