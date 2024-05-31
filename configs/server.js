@@ -8,6 +8,7 @@ import { dbConnection } from "./mongo.js";
 import authRoutes from "../src/auth/auth.routes.js";
 import communityRoutes from "../src/modules/community/community.routes.js";
 import userRoutes from "../src/modules/user/user.routes.js";
+import commentRoutes from "../src/modules/comment/comment.routes.js";
 // import routes from 'routes.js';
 
 class Server {
@@ -18,6 +19,7 @@ class Server {
     this.authPath = "/neighbor/v1/auth";
     this.communityPath = "/neighbor/v1/community";
     this.userPath = "/neighbor/v1/user";
+    this.commentPath = "/neighbor/v1/comment";
 
     this.middlewares();
     this.conectDB();
@@ -32,6 +34,7 @@ class Server {
     this.app.use(this.authPath, authRoutes);
     this.app.use(this.communityPath, communityRoutes);
     this.app.use(this.userPath, userRoutes);
+    this.app.use(this.commentPath, commentRoutes);
   }
 
   middlewares() {
