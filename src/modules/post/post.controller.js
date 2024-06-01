@@ -43,18 +43,9 @@ export const updatePost = async (req, res) => {
     handleResponse(res, Post.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
 };
 export const deletePost = async (req, res) => {
-    try {
-        const { id } = req.params;
-        await validateUserRequest(req, res);
-        const deletedPost = await Post.findByIdAndDelete(id);
-        if (!deletedPost) {
-            return res.status(404).json({ message: 'Post not found' });
-        }
-        return res.json({ message: 'Post deleted successfully'});
-    } catch (error) {
-        console.error('Error deleting post:', error);
-        return res.status(500).json({ message: 'Internal Server Error' });
-    }
+    const { id } = req.params;
+    await validateUserRequest(req, res);
+    handleResponse(res, Post.findByIdAndUpdate(id, { status: false }, { new: true }));
 };
 
 
