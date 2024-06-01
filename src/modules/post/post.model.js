@@ -36,3 +36,5 @@ const postSchema = new Schema({
 }, {
     timestamps: true
 });
+
+export default model('Post', postSchema);

@@ -9,6 +9,7 @@ import authRoutes from "../src/auth/auth.routes.js";
 import communityRoutes from "../src/modules/community/community.routes.js";
 import userRoutes from "../src/modules/user/user.routes.js";
 import commentRoutes from "../src/modules/comment/comment.routes.js";
+import postRoutes from "../src/modules/post/post.routes.js";
 // import routes from 'routes.js';
 
 class Server {
@@ -20,6 +21,7 @@ class Server {
     this.communityPath = "/neighbor/v1/community";
     this.userPath = "/neighbor/v1/user";
     this.commentPath = "/neighbor/v1/comment";
+    this.postPath = "/neighbor/v1/post"
 
     this.middlewares();
     this.conectDB();
@@ -35,6 +37,7 @@ class Server {
     this.app.use(this.communityPath, communityRoutes);
     this.app.use(this.userPath, userRoutes);
     this.app.use(this.commentPath, commentRoutes);
+    this.app.use(this.postPath, postRoutes);
   }
 
   middlewares() {
