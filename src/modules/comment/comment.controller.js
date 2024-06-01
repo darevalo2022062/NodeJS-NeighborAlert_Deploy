@@ -44,12 +44,12 @@ export const updateComment = async (req, res) => {
     const { id } = req.params;
     const { content } = req.body;
     await validateUserRequest(req, res);
-    handleResponse(res, Comment.findByIdAndUpdate(id, { $set: { content: content } }));
+    handleResponse(res, Comment.findByIdAndUpdate(id, { $set: { content: content } }, { new: true }));
 }
 
 export const deleteComment = async (req, res) => {
     const { id } = req.params;
     await validateUserRequest(req, res);
-    handleResponse(res, Comment.findByIdAndUpdate(id, { status: false }));
+    handleResponse(res, Comment.findByIdAndUpdate(id, { status: false }, { new: true }));
 };
 
