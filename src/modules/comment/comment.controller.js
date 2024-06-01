@@ -25,7 +25,13 @@ const validateUserRequest = async (req, res) => {
 export const createComment = async (req, res) => {
     const { idPost, content, anonymous } = req.body;
     const info = await validateUserRequest(req, res);
-    handleResponse(res, Comment.create({ idUser: info.id, idPost, content, anonymous }));
+    anonymous == true ? console.log("ES VERDADERO") : console.log("ES FALSO");
+    anonymous == true ?
+        handleResponse(res, Comment.create({ idPost, content, anonymous }))
+        :
+        handleResponse(res, Comment.create({ idUser: info.id, idPost, content, anonymous }))
+
+
 }
 
 export const getComments = async (req, res) => {
