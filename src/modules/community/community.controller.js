@@ -13,6 +13,7 @@ const handleResponse = (res, promise) => {
 
 const validateUserRequest = async (req, res) => {
     try {
+        const user = await isToken(req, res);
         validateAdmin(user._id);
         return true;    
     } catch (error) {

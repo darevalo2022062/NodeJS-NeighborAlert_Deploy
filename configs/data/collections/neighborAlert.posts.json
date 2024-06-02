@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "66577ecfb1a948ac7d2189ae"
+  },
+  "name": "Admin",
+  "lastName": "Admin",
+  "phone": "1234-5678",
+  "email": "jon@admin.org.gt",
+  "pass": "$2a$10$iQq1o1A3iAlJJB9m52Sl9.Jr4/fCOcrXB.RMLTP4yY5QSRMIuJK/u",
+  "img": "Not found",
+  "role": "ADMIN",
+  "idCommunity": {
+    "$oid": "665c959a08cb22987ccad390"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-05-29T19:15:27.270Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-29T19:15:27.270Z"
+  },
+  "__v": 0
+}]

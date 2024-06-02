@@ -1,16 +1,160 @@
 [{
   "_id": {
-    "$oid": "66578729102162de06d4b57f"
+    "$oid": "665c959a08cb22987ccad390"
   },
-  "name": "New York City",
-  "location": "United States",
+  "name": "Guatemala City",
+  "location": "Guatemala, Guatemala",
   "img": "Not found",
-  "status": false,
+  "status": true,
   "createdAt": {
-    "$date": "2024-05-29T19:51:05.170Z"
+    "$date": "2024-06-02T15:54:02.886Z"
   },
   "updatedAt": {
-    "$date": "2024-05-29T20:05:39.808Z"
+    "$date": "2024-06-02T15:54:02.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c959f08cb22987ccad395"
+  },
+  "name": "Antigua Guatemala",
+  "location": "Sacatepéquez, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:54:07.254Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:54:07.254Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95a608cb22987ccad39a"
+  },
+  "name": "Quetzaltenango",
+  "location": "Quetzaltenango, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:54:14.209Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:54:14.209Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95ac08cb22987ccad39f"
+  },
+  "name": "Flores",
+  "location": "Petén, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:54:20.241Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:54:20.241Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95b208cb22987ccad3a4"
+  },
+  "name": "Puerto Barrios",
+  "location": "Izabal, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:54:26.584Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:54:26.584Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95ea08cb22987ccad3a9"
+  },
+  "name": "Chichicastenango",
+  "location": "El Quiché, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:55:22.307Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:55:22.307Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95f108cb22987ccad3ae"
+  },
+  "name": "Livingston",
+  "location": "Izabal, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:55:29.486Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:55:29.486Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c95fb08cb22987ccad3b3"
+  },
+  "name": "Semuc Champey",
+  "location": "Alta Verapaz, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:55:39.130Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:55:39.130Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c960408cb22987ccad3b8"
+  },
+  "name": "Lago de Atitlán",
+  "location": "Sololá, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:55:48.574Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:55:48.574Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665c960c08cb22987ccad3bd"
+  },
+  "name": "Tikal",
+  "location": "Petén, Guatemala",
+  "img": "Not found",
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-02T15:55:56.949Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-02T15:55:56.949Z"
   },
   "__v": 0
 }]

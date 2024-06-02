@@ -9,6 +9,7 @@ const router = Router();
 router.post(
     "/",
     [
+        validateJWT,
         check("name", "Name is required").not().isEmpty(),
         check("location", "Location is required").not().isEmpty(),
         check("img", "Image is required").not().isEmpty(),

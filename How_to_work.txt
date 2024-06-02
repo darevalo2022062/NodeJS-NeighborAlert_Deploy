@@ -20,6 +20,15 @@
 
    ---
 
+   The "data" folder is to add data that will be used for testing. 
+   Collections from the database should be uploaded to the "data/collections" directory, 
+   and endpoints should be uploaded to the "data/endpoints" directory. 
+   
+   This setup facilitates testing of these components to ensure their functionality before deployment to production 
+   environments, while also maintaining the security of sensitive information.
+
+   ---
+
    Note: Ensure to maintain the security of these files and avoid exposing sensitive information, 
    such as database credentials, in public repositories or production environments.
 
@@ -69,3 +78,22 @@
 
    This structured approach to organizing our source code promotes maintainability, reusability, and collaboration 
    among developers, ensuring a cohesive and scalable application architecture.
+
+
+##### ENDPOINTS
+
+   Best Practices for API Endpoint Design
+
+   It's important to maintain clean and concise endpoint routes to enhance readability and maintainability of the API. 
+   Consider structuring your endpoints with a base route followed by the entity they operate on, like so:
+
+      - baseRoute/entity
+
+   Avoid adding unnecessary actions or verbs to the endpoint paths, such as:
+
+      - baseRoute/entity/updateEntity
+      - baseRoute/entity/createEntity
+
+   These distinctions can often be handled by employing different HTTP methods (GET, POST, PUT, DELETE) to the same endpoint. 
+   Overloading the endpoint paths with additional descriptors can lead to unnecessary complexity and clutter. 
+   Keep it simple and focused on the core functionality of the endpoint.
