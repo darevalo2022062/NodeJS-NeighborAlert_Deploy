@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "83f6e85b-7278-4964-a204-d3e2fca4b32e",
+		"_postman_id": "16e73e05-0fb3-49a1-90f9-1f251d4b0e7b",
 		"name": "Neigborn",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "34539621"
+		"_exporter_id": "32787282"
 	},
 	"item": [
 		{
@@ -159,8 +159,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k"
 							}
 						],
 						"body": {
@@ -180,7 +179,8 @@
 					"name": "Get",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -191,8 +191,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k"
 							}
 						],
 						"body": {
@@ -215,8 +214,7 @@
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k"
 							}
 						],
 						"body": {
@@ -229,6 +227,56 @@
 							}
 						},
 						"url": "http://127.0.0.1:3000/neighbor/v1/comment/deleteComment/665933b204d0a2018f9f9cdf"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "viewUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user"
+					},
+					"response": []
+				},
+				{
+					"name": "viewUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+					},
+					"response": []
+				},
+				{
+					"name": "editUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rodrigo\",\r\n  \"lastName\": \"Garcia\",\r\n  \"phone\": \"2345-2345\",\r\n  \"email\": \"rgarcia@admin.org.gt\",\r\n  \"pass\": \"coins123@B\",\r\n  \"img\": \"not found\",\r\n  \"idCommunity\": \"665916eba7dab4f8192da093\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
 					},
 					"response": []
 				}
