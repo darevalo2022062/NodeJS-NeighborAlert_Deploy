@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "6ac8fb21-a69b-459f-bdf1-1b369d7e3a03",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32787282"
+	},
+	"item": [
+		{
+			"name": "viewUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/neighbor/v1/user"
+			},
+			"response": []
+		},
+		{
+			"name": "viewUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+			},
+			"response": []
+		},
+		{
+			"name": "editUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Rodrigo\",\r\n  \"lastName\": \"Garcia\",\r\n  \"phone\": \"2345-2345\",\r\n  \"email\": \"rgarcia@admin.org.gt\",\r\n  \"pass\": \"coins123@B\",\r\n  \"img\": \"not found\",\r\n  \"idCommunity\": \"665916eba7dab4f8192da093\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+			},
+			"response": []
+		}
+	]
+}
