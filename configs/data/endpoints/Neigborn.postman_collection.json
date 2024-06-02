@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "83f6e85b-7278-4964-a204-d3e2fca4b32e",
+		"_postman_id": "473457d0-e0c0-4ebc-804c-667de1e38b8b",
 		"name": "Neigborn",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "34539621"
+		"_exporter_id": "32787339"
 	},
 	"item": [
 		{
@@ -180,7 +180,8 @@
 					"name": "Get",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": ""
 					},
 					"response": []
 				},
@@ -229,6 +230,71 @@
 							}
 						},
 						"url": "http://127.0.0.1:3000/neighbor/v1/comment/deleteComment/665933b204d0a2018f9f9cdf"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "getPost",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcyNTg4MjksImV4cCI6MTcxNzI2NjAyOX0.-6rYQDEnFn1QvwkZ7aubQwIW6jzuqz0yc4nkmwl1AMk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/post/getPost"
+					},
+					"response": []
+				},
+				{
+					"name": "createPost",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcyNTg4MjksImV4cCI6MTcxNzI2NjAyOX0.-6rYQDEnFn1QvwkZ7aubQwIW6jzuqz0yc4nkmwl1AMk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/post"
+					},
+					"response": []
+				},
+				{
+					"name": "updatePost",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcyNTg4MjksImV4cCI6MTcxNzI2NjAyOX0.-6rYQDEnFn1QvwkZ7aubQwIW6jzuqz0yc4nkmwl1AMk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/post/updatePost/665a3d5ab1af39ec6a767506"
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcyNTg4MjksImV4cCI6MTcxNzI2NjAyOX0.-6rYQDEnFn1QvwkZ7aubQwIW6jzuqz0yc4nkmwl1AMk",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/post/665b4f6b8c527891836b8ebb"
 					},
 					"response": []
 				}

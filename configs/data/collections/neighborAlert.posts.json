@@ -1,0 +1,159 @@
+[{
+  "_id": {
+    "$oid": "665a0a3f607b26e34cf76175"
+  },
+  "idUser": {
+    "$oid": "66577ecfb1a948ac7d2189ae"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-05-31T17:34:55.489Z"
+  },
+  "updatedAt": {
+    "$date": "2024-05-31T17:54:04.861Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665a3d5ab1af39ec6a767506"
+  },
+  "idUser": {
+    "$oid": "66577ecfb1a948ac7d2189ae"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "aaa",
+  "content": "aaaaaaaaaaa",
+  "anonymous": true,
+  "category": "#news",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-05-31T21:12:58.692Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:21:29.587Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665b4a641c4925f55f21ed09"
+  },
+  "idUser": {
+    "$oid": "66577ecfb1a948ac7d2189ae"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-06-01T16:20:52.168Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:31:22.106Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665b4e89dfe6564de4337a81"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-06-01T16:38:33.827Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:44:22.582Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665b4e90dfe6564de4337a86"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-06-01T16:38:40.476Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:44:39.747Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665b4f6b8c527891836b8ebb"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": false,
+  "createdAt": {
+    "$date": "2024-06-01T16:42:19.057Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:44:53.569Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665b4fd2508c26b187754ede"
+  },
+  "idUser": {
+    "$oid": "66577ecfb1a948ac7d2189ae"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "asfdsgd",
+  "content": "skjdfkdfs",
+  "anonymous": true,
+  "category": "#general",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-01T16:44:02.310Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-01T16:44:02.310Z"
+  },
+  "__v": 0
+}]
