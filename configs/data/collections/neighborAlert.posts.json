@@ -15,10 +15,199 @@
   "file": [],
   "status": true,
   "createdAt": {
-    "$date": "2024-06-02T1s6:12:19.605Z"
+    "$date": "2024-06-02T16:12:19.605Z"
   },
   "updatedAt": {
     "$date": "2024-06-03T14:30:00.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665dda281941ecd3c5e6e881"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Aviso",
+  "content": "Accidente en la curva principal",
+  "anonymous": true,
+  "category": "#news",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T14:58:48.888Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T14:58:48.888Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddafe25506e719ea12490"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Evento",
+  "content": "se realizará un evento por los 10 años de la colonia",
+  "anonymous": true,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:02:22.105Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:02:22.105Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddb4a25506e719ea12495"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Renta",
+  "content": "Casa en renta en la 38Av",
+  "anonymous": true,
+  "category": "#housing",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:03:38.014Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:03:38.014Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddb7b25506e719ea1249a"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Trabajo",
+  "content": "Se buscan personas para conformar la nueva junta directiva",
+  "anonymous": true,
+  "category": "#job",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:04:27.330Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:04:27.330Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddbb225506e719ea1249f"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Aviso",
+  "content": "Accidente en la salida de la colonia, cuidado.",
+  "anonymous": true,
+  "category": "#news",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:05:22.173Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:05:22.173Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddbdd25506e719ea124a4"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Convocatoria",
+  "content": "Se realizará una nueva convocatoria para un equipo de fútbol de niños pertenecientes a nuestra comunidad.",
+  "anonymous": true,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:06:05.407Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:06:05.407Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddc3925506e719ea124a9"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Novedades",
+  "content": "Contamos con una tienda nueva en la entrada principal a nuestra colonia.",
+  "anonymous": true,
+  "category": "#news",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:07:37.900Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:07:37.900Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddc6d25506e719ea124ae"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Novedades",
+  "content": "Está en construcción un pequeño Gimnasio y podrá ser usado por todos.",
+  "anonymous": true,
+  "category": "#news",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:08:29.296Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:08:29.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddcc425506e719ea124b3"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Evento 15 de septiembre",
+  "content": "Se realizará un evento el día 15 de septiembre, pueden dejarnos ideas en los comentarios para realizar diversas dinámicas.",
+  "anonymous": true,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:09:56.402Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:09:56.402Z"
   },
   "__v": 0
 }]
