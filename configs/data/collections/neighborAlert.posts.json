@@ -210,4 +210,124 @@
     "$date": "2024-06-03T15:09:56.402Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665ddf242227194487b306fd"
+  },
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Evento 15 de septiembre",
+  "content": "Se realizará un evento el día 15 de septiembre, pueden dejarnos ideas en los comentarios para realizar diversas dinámicas.",
+  "anonymous": false,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:20:04.635Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:20:04.635Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665de0102227194487b30702"
+  },
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Evento 17 de junio",
+  "content": "Se realizará un evento por el día del padre, ¿qué dinámicas proponen?",
+  "anonymous": false,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:24:00.881Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:24:00.881Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665de03f2227194487b30707"
+  },
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Evento 20 de diciembre",
+  "content": "Se está empezando a planificar una pequeña actividad para celebrar la navidad.",
+  "anonymous": false,
+  "category": "#event",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:24:47.960Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:24:47.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665de08c2227194487b3070c"
+  },
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Mascota perdida",
+  "content": "Se localizó a una mascota perdida en la entrada principal, por favor comunicarse  con nosotros de conocer a los dueños.",
+  "anonymous": false,
+  "category": "#news",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:26:04.214Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:26:04.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665de0de2227194487b30711"
+  },
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
+  "idCommunity": {
+    "$oid": "66578729102162de06d4b57f"
+  },
+  "title": "Casa en venta",
+  "content": "Tenemos una casa en venta en nuestra comunidad, si desea más información comuníquese con nosotros",
+  "anonymous": false,
+  "category": "#housing",
+  "file": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T15:27:26.712Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T15:27:26.712Z"
+  },
+  "__v": 0
 }]
