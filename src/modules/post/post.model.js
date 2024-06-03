@@ -12,11 +12,13 @@ const postSchema = new Schema({
     },
     title: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     content: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     anonymous: {
         type: Boolean,
@@ -24,7 +26,7 @@ const postSchema = new Schema({
     },
     category: {
         type: String,
-        enum: ['#general', '#event', '#news'],
+        enum: ['#general', '#event', '#news', '#job', '#housing'],
     },
     file:[{
         type: String

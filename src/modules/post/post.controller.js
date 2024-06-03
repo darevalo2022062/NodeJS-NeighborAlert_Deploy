@@ -1,14 +1,13 @@
 import Post from "./post.model.js";
 import { validateUser } from "../../helpers/data-methods.js";
 import { isToken } from "../../helpers/tk-methods.js";
-import { ConnectionReadyEvent } from 'mongodb';
 
 const handleResponse = (res, promise) => {
     promise
         .then(data => res.status(200).json(data))
         .catch(error => {
             console.error('Error:', error);
-            res.status(500), json({ error: 'Internal server error' });
+            res.status(500), json({error: 'Internal server error'});
         });
 };
 
@@ -26,7 +25,10 @@ const validateUserRequest = async (req, res) => {
 export const createPost = async (req, res) => {
     const { idCommunity, title, content, anonymous, category, file } = req.body;
     const info = await validateUserRequest(req, res);
-    handleResponse(res, Post.create({ idUser: info.id, idCommunity, title, content, anonymous, category, file }));
+    anonymous == true ?
+        handleResponse(res, Post.create({idCommunity, title, content, anonymous, category, file }))
+        :
+        handleResponse(res, Post.create({ idUser: info.id, idCommunity, title, content, anonymous, category, file }))
 }
 
 export const getMyPost = async (req, res) => {

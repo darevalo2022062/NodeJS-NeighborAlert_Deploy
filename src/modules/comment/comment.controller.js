@@ -1,7 +1,6 @@
 import Comment from './comment.model.js';
 import { validateUser } from '../../helpers/data-methods.js';
 import { isToken } from '../../helpers/tk-methods.js';
-import { ConnectionReadyEvent } from 'mongodb';
 
 const handleResponse = (res, promise) => {
     promise
