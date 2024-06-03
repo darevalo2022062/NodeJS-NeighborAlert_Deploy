@@ -1,16 +1,110 @@
 {
 	"info": {
-		"_postman_id": "473457d0-e0c0-4ebc-804c-667de1e38b8b",
+		"_postman_id": "184511d3-34b5-41c4-9bb9-554813322d33",
 		"name": "Neigborn",
+		"description": "**Project Overview - NeigbornAlert API**\n\n**Introduction**:  \nThis collection provides an overview of the _NeigbornAlert API_, which encompasses all entities and functionalities within the system. NeigbornAlert is a platform designed to facilitate communication and interaction among users within communities. The API supports user management, community creation, post management, comment interactions, and authentication processes.\n\n---\n\n**Best Practices for API Endpoint Design**:  \nIt's important to maintain clean and concise endpoint routes to enhance readability and maintainability of the API. Consider structuring your endpoints with a base route followed by the entity they operate on, like so:\n\n`baseRoute/entity`\n\nAvoid adding unnecessary actions or verbs to the endpoint paths, such as:\n\n`baseRoute/entity/updateEntity`\n\n`baseRoute/entity/createEntity`\n\n> These distinctions can often be handled by employing different HTTP methods (GET, POST, PUT, DELETE) to the same endpoint. Overloading the endpoint paths with additional descriptors can lead to unnecessary complexity and clutter. Keep it simple and focused on the core functionality of the endpoint. \n  \n\n---\n\n**Endpoints**:\n\n- **User**:\n    \n    - Create User: `POST /neighbor/v1/user`\n        \n    - Get Users: `GET /neighbor/v1/user`\n        \n    - Get User by ID: `GET /neighbor/v1/user/{userId}`\n        \n    - Update User: `PUT /neighbor/v1/user/{userId}`\n        \n    - Delete User: `DELETE /neighbor/v1/user/{userId}`\n        \n- **Community**:\n    \n    - Create Community: `POST /neighbor/v1/community`\n        \n    - Get Communities: `GET /neighbor/v1/community`\n        \n    - Get Community by ID: `GET /neighbor/v1/community/{communityId}`\n        \n    - Update Community: `PUT /neighbor/v1/community/{communityId}`\n        \n    - Delete Community: `DELETE /neighbor/v1/community/{communityId}`\n        \n- **Post**:\n    \n    - Create Post: `POST /neighbor/v1/post`\n        \n    - Get Posts: `GET /neighbor/v1/post`\n        \n    - Get Post by ID: `GET /neighbor/v1/post/{postId}`\n        \n    - Update Post: `PUT /neighbor/v1/post/{postId}`\n        \n    - Delete Post: `DELETE /neighbor/v1/post/{postId}`\n        \n- **Comment**:\n    \n    - Create Comment: `POST /neighbor/v1/comment`\n        \n    - Get Comments: `GET /neighbor/v1/comment`\n        \n    - Get Comment by ID: `GET /neighbor/v1/comment/{commentId}`\n        \n    - Update Comment: `PUT /neighbor/v1/comment/{commentId}`\n        \n    - Delete Comment: `DELETE /neighbor/v1/comment/{commentId}`",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "32787339"
 	},
 	"item": [
 		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"lastName\": \"Admin\",\r\n    \"phone\": \"1234-5678\",\r\n    \"email\": \"jon@admin.org.gt\",\r\n    \"pass\": \"@Pass123\",\r\n    \"img\":\"Not found\",\r\n    \"idCommunity\": \"66577ad5bcea4d45b3836532\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/neighbor/v1/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"jon@admin.org.gt\",\r\n    \"pass\":\"@Pass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/neighbor/v1/auth/login"
+					},
+					"response": []
+				}
+			],
+			"description": "**Welcome to NeigbornAlert Authentication Endpoints**\n\n**Introduction**: This collection manages authentication-related operations within the system. Authentication is essential for user access and security. These endpoints handle user login and registration processes.\n\n`http://localhost:3000/neighbor/v1/auth`\n\n- **Login**: Endpoint to authenticate a user and generate an access token.\n    \n- **Register**: Endpoint to create a new user account.\n    \n\n> Avoid adding unnecessary actions or verbs to the endpoint paths, such as:  \n`baseRoute/entity/updateEntity`  \n`baseRoute/entity/createEntity`"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user/66577ecfb1a948ac7d2189ae"
+					},
+					"response": []
+				},
+				{
+					"name": "editUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Rodrigo\",\r\n  \"lastName\": \"Garcia\",\r\n  \"phone\": \"2345-2345\",\r\n  \"email\": \"rgarcia@admin.org.gt\",\r\n  \"pass\": \"coins123@B\",\r\n  \"img\": \"not found\",\r\n  \"idCommunity\": \"665916eba7dab4f8192da093\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:3000/neighbor/v1/user/665bcd48b0d3ebea4281d296"
+					},
+					"response": []
+				}
+			],
+			"description": "**Welcome to NeigbornAlert User Endpoints**\n\n**Introduction**: This collection manages _user-related_ operations within the system. Users are the individuals registered within the platform, enabling them to interact with communities, create posts, and engage in discussions.\n\n`http://localhost:3000/neighbor/v1/user`\n\n- **Create User**: Endpoint to create a new user.\n    \n- **Get Users**: Endpoint to retrieve a list of users.\n    \n- **Get User by ID**: Endpoint to retrieve a specific user by their unique identifier.\n    \n- **Update User**: Endpoint to update an existing user's information.\n    \n- **Delete User**: Endpoint to delete a user from the system.\n    \n\n> Avoid adding unnecessary actions or verbs to the endpoint paths, such as:  \n`baseRoute/entity/updateEntity`  \n`baseRoute/entity/createEntity`"
+		},
+		{
 			"name": "Community",
 			"item": [
 				{
-					"name": "Get",
+					"name": "getCommunity",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -24,9 +118,46 @@
 					"response": []
 				},
 				{
-					"name": "Create",
+					"name": "getCommunityById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcwMTAzNTQsImV4cCI6MTcxNzAxNzU1NH0.2P595Gleaz3zTDcWyaG4m1ECuazT2P4LDfyK1Drd_kc"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/community/66578729102162de06d4b57f"
+					},
+					"response": []
+				},
+				{
+					"name": "createCommunity",
 					"request": {
 						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTczNDIyNzEsImV4cCI6MTcxNzM0OTQ3MX0.N2n2R5mpULEYU4T5YC4N5pgfG_5LhZKYT8Sqsqszv5s"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Tikal\",\r\n    \"location\": \"Petén, Guatemala\",\r\n    \"img\": \"Not found\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/neighbor/v1/community"
+					},
+					"response": []
+				},
+				{
+					"name": "updateCommunity",
+					"request": {
+						"method": "PUT",
 						"header": [
 							{
 								"key": "token",
@@ -42,12 +173,12 @@
 								}
 							}
 						},
-						"url": "http://localhost:3000/neighbor/v1/community"
+						"url": "http://localhost:3000/neighbor/v1/community/66578729102162de06d4b57f"
 					},
 					"response": []
 				},
 				{
-					"name": "Delete",
+					"name": "deleteCommunity",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -68,175 +199,12 @@
 						"url": "http://localhost:3000/neighbor/v1/community/66578729102162de06d4b57f"
 					},
 					"response": []
-				},
-				{
-					"name": "Get-One",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcwMTAzNTQsImV4cCI6MTcxNzAxNzU1NH0.2P595Gleaz3zTDcWyaG4m1ECuazT2P4LDfyK1Drd_kc"
-							}
-						],
-						"url": "http://localhost:3000/neighbor/v1/community/66578729102162de06d4b57f"
-					},
-					"response": []
-				},
-				{
-					"name": "Update",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcwMTAzNTQsImV4cCI6MTcxNzAxNzU1NH0.2P595Gleaz3zTDcWyaG4m1ECuazT2P4LDfyK1Drd_kc"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"New York City\",\r\n    \"location\":\"United States\",\r\n    \"img\":\"Not found\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:3000/neighbor/v1/community/66578729102162de06d4b57f"
-					},
-					"response": []
 				}
-			]
+			],
+			"description": "**Welcome to NeigbornAlert Community Endpoints**\n\n**Introduction**: This collection handles _community-related_ functionalities. Communities serve as thematic hubs where users can share content, participate in discussions, and build networks around common interests or topics.\n\n`http://localhost:3000/neighbor/v1/community`\n\n- **Create Community**: Endpoint to create a new community.\n    \n- **Get Communities**: Endpoint to retrieve a list of communities.\n    \n- **Get Community by ID**: Endpoint to retrieve a specific community by its unique identifier.\n    \n- **Update Community**: Endpoint to update an existing community's information.\n    \n- **Delete Community**: Endpoint to delete a community from the system.\n    \n\n> Avoid adding unnecessary actions or verbs to the endpoint paths, such as:  \n`baseRoute/entity/updateEntity`  \n`baseRoute/entity/createEntity`"
 		},
 		{
-			"name": "Auth",
-			"item": [
-				{
-					"name": "Register",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Admin\",\r\n    \"lastName\": \"Admin\",\r\n    \"phone\": \"1234-5678\",\r\n    \"email\": \"mateo@admin.org.gt\",\r\n    \"pass\": \"@Pass123\",\r\n    \"img\":\"Not found\",\r\n    \"idCommunity\": \"665a085a34039071a8cc04ad\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:3000/neighbor/v1/auth/register"
-					},
-					"response": []
-				},
-				{
-					"name": "Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"mateo@admin.org.gt\",\r\n    \"pass\":\"@Pass123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://localhost:3000/neighbor/v1/auth/login"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Comments",
-			"item": [
-				{
-					"name": "Create",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"idUser\":\"66577ecfb1a948ac7d2189ae\",\r\n    \"idPost\":\"66577ecfb1a948ac7d2189ae\",\r\n    \"content\":\"EQUISDEEEEEEE\",\r\n    \"anonymous\":false\r\n\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://127.0.0.1:3000/neighbor/v1/comment"
-					},
-					"response": []
-				},
-				{
-					"name": "Get",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": ""
-					},
-					"response": []
-				},
-				{
-					"name": "update",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"content\":\"Esta es la nueva data xd\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://127.0.0.1:3000/neighbor/v1/comment/updateComment/66592dec123ef0dc28b3958a"
-					},
-					"response": []
-				},
-				{
-					"name": "update Copy",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"content\":\"Esta es la nueva data xd\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "http://127.0.0.1:3000/neighbor/v1/comment/deleteComment/665933b204d0a2018f9f9cdf"
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Posts",
+			"name": "Post",
 			"item": [
 				{
 					"name": "getPost",
@@ -278,7 +246,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"idCommunity\": \"66578729102162de06d4b57f\", \r\n  \"title\": \"Aviso accidente\", \r\n  \"content\": \"Hola a todos, les quería avisar que hubo un accidente en la entrada principal\", \r\n  \"anonymous\": true, \r\n  \"category\": \"#general\"\r\n}",
+							"raw": "{\r\n  \"idCommunity\": \"66578729102162de06d4b57f\", \r\n  \"title\": \"Casa en venta\", \r\n  \"content\": \"Tenemos una casa en venta en nuestra comunidad, si desea más información comuníquese con nosotros\", \r\n  \"anonymous\": false, \r\n  \"category\": \"#housing\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -286,6 +254,21 @@
 							}
 						},
 						"url": "http://localhost:3000/neighbor/v1/post"
+					},
+					"response": []
+				},
+				{
+					"name": "deletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjVjOTk1NzY1MmE1ZWM4ZmQ3ODAzNjkiLCJlbWFpbCI6Im1hdGVvQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNzQyNDc5MywiZXhwIjoxNzE3NDMxOTkzfQ.-I9dXZNqYebuuH05mvWg-uXxWDWZsKUh7ERcf3sgWMU",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:3000/neighbor/v1/post/665c9981652a5ec8fd780371"
 					},
 					"response": []
 				},
@@ -312,23 +295,93 @@
 						"url": "http://localhost:3000/neighbor/v1/post/665c99e3652a5ec8fd78037b"
 					},
 					"response": []
+				}
+			],
+			"description": "**Welcome to NeigbornAlert Post Endpoints**\n\n**Introduction**: This collection handles _post-related_ functionalities within communities. Posts are individual pieces of content created by users within specific communities, providing a platform for sharing information, asking questions, or initiating discussions.\n\n`http://localhost:3000/neighbor/v1/post`\n\n- **Create Post**: Endpoint to create a new post within a community.\n    \n- **Get Posts**: Endpoint to retrieve a list of posts within a community.\n    \n- **Get Post by ID**: Endpoint to retrieve a specific post by its unique identifier.\n    \n- **Update Post**: Endpoint to update an existing post's content.\n    \n- **Delete Post**: Endpoint to delete a post from a community.\n    \n\n> Avoid adding unnecessary actions or verbs to the endpoint paths, such as:  \n`baseRoute/entity/updateEntity`  \n`baseRoute/entity/createEntity`"
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "getComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:3000/neighbor/v1/comment"
+					},
+					"response": []
 				},
 				{
-					"name": "deletePost",
+					"name": "createComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTczNDMyODYsImV4cCI6MTcxNzM1MDQ4Nn0.Hzja_pkZHbJdn8nuu0dTeL43swWXVRKlhtOtZQ50pzY"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPost\":\"66577ecfb1a948ac7d2189ae\",\r\n    \"content\":\"Hola\",\r\n    \"anonymous\":false\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/neighbor/v1/comment"
+					},
+					"response": []
+				},
+				{
+					"name": "updateComment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Esta es la nueva data xd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/neighbor/v1/comment/updateComment/66592dec123ef0dc28b3958a"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteComment",
 					"request": {
 						"method": "DELETE",
 						"header": [
 							{
 								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjVjOTk1NzY1MmE1ZWM4ZmQ3ODAzNjkiLCJlbWFpbCI6Im1hdGVvQGFkbWluLm9yZy5ndCIsImlhdCI6MTcxNzQyNDc5MywiZXhwIjoxNzE3NDMxOTkzfQ.-I9dXZNqYebuuH05mvWg-uXxWDWZsKUh7ERcf3sgWMU",
-								"type": "text"
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NjU3N2VjZmIxYTk0OGFjN2QyMTg5YWUiLCJlbWFpbCI6ImpvbkBhZG1pbi5vcmcuZ3QiLCJpYXQiOjE3MTcxMTk2ODMsImV4cCI6MTcxNzEyNjg4M30.1uA9AUKg_7cDh_jqbM3yApsFbbqc3mNWoFmlCSEQa7k"
 							}
 						],
-						"url": "http://localhost:3000/neighbor/v1/post/665c9981652a5ec8fd780371"
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Esta es la nueva data xd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:3000/neighbor/v1/comment/deleteComment/665933b204d0a2018f9f9cdf"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "**Welcome to NeigbornAlert Comment Endpoints**\n\n**Introduction**: This collection governs _comment-related_ actions on posts. Comments allow users to engage in conversations around specific posts, offering insights, asking for clarifications, or sharing opinions within the community.\n\n`http://localhost:3000/neighbor/v1/comment`\n\n- **Create Comment**: Endpoint to create a new comment on a post.\n    \n- **Get Comments**: Endpoint to retrieve a list of comments on a post.\n    \n- **Get Comment by ID**: Endpoint to retrieve a specific comment by its unique identifier.\n    \n- **Update Comment**: Endpoint to update an existing comment's content.\n    \n- **Delete Comment**: Endpoint to delete a comment from a post.\n    \n\n> Avoid adding unnecessary actions or verbs to the endpoint paths, such as:  \n`baseRoute/entity/updateEntity`  \n`baseRoute/entity/createEntity`"
 		}
 	]
 }
