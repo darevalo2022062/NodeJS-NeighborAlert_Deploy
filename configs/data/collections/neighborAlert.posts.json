@@ -1,23 +1,24 @@
 [{
   "_id": {
-    "$oid": "66577ecfb1a948ac7d2189ae"
+    "$oid": "665c99e3652a5ec8fd78037b"
   },
-  "name": "Admin",
-  "lastName": "Admin",
-  "phone": "1234-5678",
-  "email": "jon@admin.org.gt",
-  "pass": "$2a$10$iQq1o1A3iAlJJB9m52Sl9.Jr4/fCOcrXB.RMLTP4yY5QSRMIuJK/u",
-  "img": "Not found",
-  "role": "ADMIN",
+  "idUser": {
+    "$oid": "665c9957652a5ec8fd780369"
+  },
   "idCommunity": {
-    "$oid": "665c959a08cb22987ccad390"
+    "$oid": "66578729102162de06d4b57f"
   },
+  "title": "ADVERTENCIA",
+  "content": "PRECAUCIÓN EN LA ENTRADA PRINCIPAL",
+  "anonymous": true,
+  "category": "#job",
+  "file": [],
   "status": true,
   "createdAt": {
-    "$date": "2024-05-29T19:15:27.270Z"
+    "$date": "2024-06-02T16:12:19.605Z"
   },
   "updatedAt": {
-    "$date": "2024-05-29T19:15:27.270Z"
+    "$date": "2024-06-03T14:30:00.139Z"
   },
   "__v": 0
 }]
