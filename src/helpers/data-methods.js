@@ -1,11 +1,6 @@
 import User from '../modules/user/user.model.js';
 import Community from '../modules/community/community.model.js';
-
-const easyPasswords = ['password', '123456', 'admin123', 'root123', "hello123", "123456789", "qwerty", "password1", "admin", "root", "123"];
-const specialCharacters = /[!@#$%^&*(),.?":{}|<>]/;
-const numbers = /[0-9]/;
-const uppercaseLetters = /[A-Z]/;
-const lowercaseLetters = /[a-z]/;
+import zxcvbn from 'zxcvbn';
 
 export const validateAnonymous = async (anonymous) => {
     if (!anonymous) {throw new Error('Anonymous is required')}
@@ -51,13 +46,12 @@ export const validateExistentEmail = async (email) => {
 }
 
 export const validatePassword = async (password) => {
-    if (!password) {throw new Error('Password is required')}
-    if (typeof password !== 'string') {throw new Error('Password must be a string')}
-    if (password.length < 6) {throw new Error('Password must be at least 6 characters')}
-    if (easyPasswords.includes(password)) {throw new Error('Password is too easy')}
-    if (!specialCharacters.test(password)) {throw new Error('Password must contain at least one special character')}
-    if (!numbers.test(password)) {throw new Error('Password must contain at least one number')}
-    if (!uppercaseLetters.test(password)) {throw new Error('Password must contain at least one uppercase letter')}
-    if (!lowercaseLetters.test(password)) {throw new Error('Password must contain at least one lowercase letter')}
-    return password;
-}
+    const result = zxcvbn(password);
+
+    if (result.score < 2) {
+        throw new Error(`The password is not safe enough.`);
+    }
+    if (password.length < 6) {
+        throw new Error('The password must be at least 6 characters.');
+    }
+};
