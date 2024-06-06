@@ -1,7 +1,7 @@
 import bcryptjs from "bcryptjs";
 import { generateJWT } from "../helpers/generate-JWT.js";
 import User from "../modules/user/user.model.js";
-import {validateCommunity, validateExistentEmail, validateEmail, validatePassword } from "../helpers/data-methods.js";
+import { validateExistentEmail, validateEmail, validatePassword } from "../helpers/data-methods.js";
 
 export const register = async (req, res) => {
   const { name, lastName, phone, email, pass, img, idCommunity } = req.body;
