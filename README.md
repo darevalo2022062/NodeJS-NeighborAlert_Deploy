@@ -11,26 +11,26 @@ This project aims to develop a web application using Node.js, React, and MongoDB
 
 ## Table of Contents
 
-1. [Setup and Installation](#setup-and-installation)
-2. [Authentication](#authentication)
-3. [Administration Functions](#administration-functions)
+- [Setup and Installation](#setup-and-installation)
+- [Authentication](#authentication)
+- [Administration Functions](#administration-functions)
     - [Manager Management](#manager-management)
     - [Platform Administration](#platform-administration)
-4. [Manager Functions](#manager-functions)
+- [Manager Functions](#manager-functions)
     - [Community Management](#community-management)
     - [Reports Management](#reports-management)
     - [Users Management](#users-management)
-5. [User Functions](#user-functions)
+- [User Functions](#user-functions)
     - [Community Management](#community-management-1)
     - [Reports Management](#reports-management-1)
     - [User Management](#user-management)
-6. [API Endpoints](#api-endpoints)
-7. [Error Handling](#error-handling)
-8. [Security](#security)
-9. [Deployment](#deployment)
-10. [Contributing](#contributing)
-11. [License](#license)
-12. [Thanks](#thanks)
+- [API Endpoints](#api-endpoints)
+- [Error Handling](#error-handling)
+- [Security](#security)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Thanks](#thanks)
 
 
 ## Setup and Installation
