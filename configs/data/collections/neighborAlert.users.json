@@ -1,23 +1,230 @@
 [{
   "_id": {
-    "$oid": "66577ecfb1a948ac7d2189ae"
+    "$oid": "6659175c1745d1fb9a3826c1"
   },
-    "name": "Admin",
-    "lastName": "Admin",
-    "phone": "1234-5678",
-    "email": "jon@admin.org.gt",
-    "pass": "$2a$10$iQq1o1A3iAlJJB9m52Sl9.Jr4/fCOcrXB.RMLTP4yY5QSRMIuJK/u",
-    "img": "Not found",
-    "role": "ADMIN",
-    "idCommunity": {
-      "$oid": "66577ad5bcea4d45b3836532"
-    },
+  "name": "Elmer",
+  "lastName": "Santos",
+  "phone": "4231-5663",
+  "email": "esantos@admin.org.gt",
+  "pass": "$2a$10$zIC7O9Zek5WfP/Os3U2NreQMgcj4P3Sd6v66KyElkkqZARWFTnf7S",
+  "img": "not found",
+  "role": "ADMIN",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
   "status": true,
   "createdAt": {
-    "$date": "2024-05-29T19:15:27.270Z"
+    "$date": "2024-05-31T00:18:37.009Z"
   },
   "updatedAt": {
-    "$date": "2024-05-29T19:15:27.270Z"
+    "$date": "2024-06-03T19:57:38.541Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e01ee4fa919a7634cab1b"
+  },
+  "name": "Alfredo",
+  "lastName": "Jimenez",
+  "phone": "5312-3456",
+  "email": "ajimenez@kinal.org.gt",
+  "pass": "$2a$10$Laph29oB2hl3eN2kdP0qIOPoRJ/32GsnqynYfgm/gBKhiZwQwj1sO",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T17:48:30.241Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T18:10:02.606Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1e8b2aee2e7d6ea699fe"
+  },
+  "name": "Ana",
+  "lastName": "Rodriguez",
+  "phone": "4522-6673",
+  "email": "arodriguez@gmail.com",
+  "pass": "$2a$10$TyVPCv2Ybf0bSnOG3yjvLOOWdsSJR/f7AMvYPi8AvQkjs8ZcymAka",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:50:36.049Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:50:36.049Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1eac2aee2e7d6ea69a02"
+  },
+  "name": "Carlos",
+  "lastName": "Perez",
+  "phone": "9823-2341",
+  "email": "cperez@outlook.com",
+  "pass": "$2a$10$0ISy4jX6Nb865E9w647MKOwklzUMFTMkFp3tXJbwWdtcVd.FrQeb2",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:51:08.489Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:51:08.489Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1f788e8a0ff3976d4ede"
+  },
+  "name": "Pedro",
+  "lastName": "Ramirez",
+  "phone": "5242-2334",
+  "email": "pramirez@hotmail.es",
+  "pass": "$2a$10$552iMftdiu1hoymybFMPruFdz27t2UrNmkxDT60xfrGhFOYA1LiLa",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:54:32.998Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:54:32.998Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1fb68e8a0ff3976d4ee2"
+  },
+  "name": "Isabel",
+  "lastName": "Torres",
+  "phone": "4412-1323",
+  "email": "itorres@hotmail.es",
+  "pass": "$2a$10$UH2MQ.rAxxBkqam2eIU/Q.YxkZLT1TNfKtM8ZRlgdVPXxdYsdwq0q",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:55:34.562Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:55:34.562Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1fd18e8a0ff3976d4ee6"
+  },
+  "name": "Sergio",
+  "lastName": "Cruz",
+  "phone": "4231-3223",
+  "email": "scruz@kinal.edu.gt",
+  "pass": "$2a$10$mhzTqvoxblnTsOJ8WM4e..NLTG1xDKtRWhOGmEXabiSqx.ov7WzX.",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:56:01.947Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:56:01.947Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e1fef8e8a0ff3976d4eea"
+  },
+  "name": "Miguel",
+  "lastName": "Herrera",
+  "phone": "4252-3442",
+  "email": "mherrera@gmail.com",
+  "pass": "$2a$10$cVNCxAjNIRziUiNA1z3PiuF0wgGjIUq78Veo0EWMbem/weDDCvh/m",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:56:31.171Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:56:31.171Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e20098e8a0ff3976d4eee"
+  },
+  "name": "David",
+  "lastName": "Flores",
+  "phone": "4452-1223",
+  "email": "dflores@gmail.com",
+  "pass": "$2a$10$HAcRPHy1Q3F2c3QPpwKNFeimXIQ6iqbU6OVglNIPK4oyUp9Vv3ppO",
+  "img": "not found",
+  "role": "USER",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:56:58.085Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:56:58.085Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665e20948e8a0ff3976d4efa"
+  },
+  "name": "Rodrigo",
+  "lastName": "Garcia",
+  "phone": "4455-6654",
+  "email": "rgarcia@admin.org.gt",
+  "pass": "$2a$10$BraaVzgDUmWtqvLoFf6WfuolyYUDgsY4QimYHd2Qo7FfE5iCh7XXO",
+  "img": "not found",
+  "role": "ADMIN",
+  "idCommunity": {
+    "$oid": "665916eba7dab4f8192da093"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2024-06-03T19:59:16.587Z"
+  },
+  "updatedAt": {
+    "$date": "2024-06-03T19:59:16.587Z"
   },
   "__v": 0
 }]
