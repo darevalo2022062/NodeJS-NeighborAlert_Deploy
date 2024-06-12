@@ -1,32 +1,43 @@
 import bcryptjs from "bcryptjs";
 import { generateJWT } from "../helpers/generate-JWT.js";
 import User from "../modules/user/user.model.js";
-import { validateExistentEmail, validateEmail, validatePassword } from "../helpers/data-methods.js";
+import Community from '../modules/community/community.model.js';
+
+import { validateExistentEmail, validateEmail, validatePassword, validateCodeAccess } from "../helpers/data-methods.js";
 
 export const register = async (req, res) => {
-  const { name, lastName, phone, email, pass, img, idCommunity } = req.body;
+  const { name, lastName, phone, email, pass, img, codeAccess } = req.body;
   let role;
   let user;
+  let communityId = null;
+
   try {
     validateExistentEmail(email);
     validateEmail(email);
-    // validateCommunity(idCommunity);
     validatePassword(pass);
 
-    if (email.includes("admin.god.gt")){
+
+    if (email.includes("admin.god.gt")) {
       role = "Sp_ADMIN";
     } else if (email.includes("admin.org.gt")) {
       role = "ADMIN";
     } else {
-      role = "USER"; 
+      role = "USER";
+      validateCodeAccess(codeAccess);
+      const community = await Community.findOne({ codeAccess });
+      if (community) {
+        communityId = community._id;
+      } else {
+        return res.status(400).json({ error: "Invalid community code." });
+      }
     }
 
-    user = new User({ name, lastName, phone, email, pass, img, role, idCommunity });
+    user = new User({ name, lastName, phone, email, pass, img, role, idCommunity: communityId });
     const salt = bcryptjs.genSaltSync();
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
-    res.status(200).json({user});
-    
+    res.status(200).json({ user });
+
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -34,7 +45,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   const { email, pass } = req.body;
-  
+
   try {
     const user = await User.findOne({ email: email });
 

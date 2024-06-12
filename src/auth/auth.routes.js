@@ -2,7 +2,7 @@ import { Router } from "express";
 import { check } from "express-validator";
 import { validateFields } from "../middlewares/validate-fields.js";
 import { login, register } from "./auth.controller.js";
-import { validateExistentEmail, validateEmail, validatePassword} from "../helpers/data-methods.js";
+import { validateExistentEmail, validateEmail, validatePassword, validateCodeAccess } from "../helpers/data-methods.js";
 
 const router = Router();
 
@@ -18,7 +18,7 @@ router.post(
         check("pass").custom(validatePassword),
         // check("img", "Image is required").not().isEmpty(),
         // check("idCommunity", "Community is required").not().isEmpty(),
-        // check("idCommunity").custom(validateCommunity),
+        // check("codeAccess").custom(validateCodeAccess),
         validateFields,
     ],
     register
