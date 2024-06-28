@@ -97,3 +97,56 @@
    These distinctions can often be handled by employing different HTTP methods (GET, POST, PUT, DELETE) to the same endpoint. 
    Overloading the endpoint paths with additional descriptors can lead to unnecessary complexity and clutter. 
    Keep it simple and focused on the core functionality of the endpoint.
+
+##### DEBUGGING
+
+   To facilitate debugging and logging within the application, a backend logging service (using the PINO framework) 
+   is available. The logger can be found in `src/helpers/logger`.
+
+   ### Logger Service Overview
+
+      The logging service is designed to capture and present messages of varying severity levels, including:
+
+      - `info`: General information messages.
+      - `debug`: Detailed debugging information.
+      - `error`: Errors that may not require immediate attention but should be monitored.
+      - `fatal`: Critical errors that require immediate attention.
+
+      The service is configured to operate ONCE A REQUEST REACHES THE BACKEND AND HAS PASSED THROUGH ALL RELEVANT MIDDLEWARES.
+
+   ### Logging Format
+
+      Each log entry adheres to the following format:
+
+      [YYYY-MM-DD HH:mm] LEVEL (PID) <methodName (file)>: Message
+
+      Where:
+      - `YYYY-MM-DD HH:mm:ss`: Timestamp of when the log was recorded.
+      - `LEVEL`: Severity level of the log entry (`info`, `debug`, `error`, `fatal`).
+      - `PID`: Process ID where the log was generated.
+      - `methodName`: Name of the method where the log was called.
+      - `file:line`: File and line number where the log statement exists.
+      - `Message`: Descriptive message corresponding to the log entry.
+
+   ### How to Use
+
+      To utilize the logger, simply export it from `src/helpers/logger` in your module and use it as follows:
+
+      ```javascript
+      const logger = require('../helpers/logger');
+
+      // Example usage
+      logger.info('Starting application...');
+      logger.debug('Debugging information...');
+      logger.error('An error occurred!');
+      logger.fatal('Critical error! Application shutting down...');
+
+   Ensure that appropriate logging levels (info, debug, error, fatal) are used based on the nature and severity of the message.
+
+   This logging mechanism helps maintain clarity, traceability, and debugging efficiency throughout the application's 
+   development and operation phases.
+
+
+   This documentation provides a structured overview of the logging service, its capabilities, usage instructions, and the 
+   expected log format. Adjustments can be made based on specific application requirements or additional functionalities of 
+   the logging service.
