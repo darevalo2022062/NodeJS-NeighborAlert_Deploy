@@ -2,6 +2,7 @@ import bcryptjs from 'bcryptjs';
 import User from './user.model.js';
 import { validateAdmin } from '../../helpers/data-methods.js';
 import { isToken } from '../../helpers/tk-methods.js';
+import Community from '../community/community.model.js';
 
 const handleResponse = (res, promise) => {
     promise
@@ -18,7 +19,7 @@ const validateUserRequest = async (req, res) => {
         if (user.role === 'ADMIN') {
             return true;
         }
-        return false;  
+        return false;
     } catch (error) {
         return res.status(400).json({ error: error.message });
     }
@@ -33,10 +34,22 @@ export const getUsers = async (req, res) => {
     }
 };
 
+export const enterCommunity = async (req, res) => {
+    const user = await isToken(req, res);
+    const { codeAccess } = req.body;
+    
+    validateCodeAccess(codeAccess);
+    const community = await Community.findOne({ codeAccess });
+    const newData = { idCommunity: community._id };
+
+    handleResponse(res, User.findOneAndUpdate({ _id: user._id, status: true }, { $set: newData }, { new: true }));
+
+}
+
 export const getUser = async (req, res) => {
     const { id } = req.params;
     const user = await isToken(req, res);
-    
+
     if (user.role === 'ADMIN' || user._id.toString() === id) {
         handleResponse(res, User.findById(id));
     } else {
@@ -47,7 +60,7 @@ export const getUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     const { id } = req.params;
     const user = await isToken(req, res);
-    
+
     if (user._id.toString() === id) {
         const { name, lastName, phone, pass, img, idCommunity } = req.body;
         const newData = { name, lastName, phone, img, idCommunity };
@@ -66,7 +79,7 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
     const { id } = req.params;
     const user = await isToken(req, res);
-    
+
     if (user._id.toString() === id || user.role === 'ADMIN') {
         handleResponse(res, User.findByIdAndUpdate(id, { status: false }, { new: true }));
     } else {

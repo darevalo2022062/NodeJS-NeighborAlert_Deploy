@@ -2,15 +2,23 @@ import bcryptjs from "bcryptjs";
 import { generateJWT } from "../helpers/generate-JWT.js";
 import User from "../modules/user/user.model.js";
 import Community from '../modules/community/community.model.js';
+import axios from "axios";
 
 import { validateExistentEmail, validateEmail, validatePassword, validateCodeAccess } from "../helpers/data-methods.js";
 
 export const register = async (req, res) => {
-  const { name, lastName, phone, email, pass, img, codeAccess } = req.body;
+  const { name, lastName, phone, email, pass } = req.body;
+  const img = req.file;
+  const formData = new FormData();
+  formData.append('image', img.buffer.toString('base64'));
+
+  const imgResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, formData);
+  const imgURL = imgResponse.data.data.url;
+
+
   let role;
   let user;
-  let communityId = null;
-
+  let idCommunity = null;
   try {
     validateExistentEmail(email);
     validateEmail(email);
@@ -23,19 +31,14 @@ export const register = async (req, res) => {
       role = "ADMIN";
     } else {
       role = "USER";
-      validateCodeAccess(codeAccess);
-      const community = await Community.findOne({ codeAccess });
-      if (community) {
-        communityId = community._id;
-      } else {
-        return res.status(400).json({ error: "Invalid community code." });
-      }
+
     }
 
-    user = new User({ name, lastName, phone, email, pass, img, role, idCommunity: communityId });
+    user = new User({ name, lastName, phone, email, pass, img: imgURL, role, idCommunity: idCommunity });
     const salt = bcryptjs.genSaltSync();
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
+    console.log(img)
     res.status(200).json({ user });
 
   } catch (error) {
@@ -52,7 +55,7 @@ export const login = async (req, res) => {
     if (!user) {
       return res
         .status(400)
-        .send("Upss!, email or password are incorrect.");
+        .send("Oops, the e-mail is incorrect.");
     }
 
     if (!user.status) {
@@ -62,15 +65,15 @@ export const login = async (req, res) => {
     const validPassword = await bcryptjs.compareSync(pass, user.pass);
 
     if (!validPassword) {
-      return res.status(400).send("Upss!, email or password are incorrect.");
+      return res.status(400).send("Upss!, the password is incorrect.");
     } else {
       const token = await generateJWT(user.id, user.email);
 
       res.status(200).json({
-        msg: "Login ok",
-        userDetails: {
+        user: {
           id: user._id,
           name: user.name,
+          lastName: user.lastName,
           email: user.email,
           img: user.img,
           role: user.role,

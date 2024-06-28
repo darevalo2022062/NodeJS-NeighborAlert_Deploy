@@ -26,10 +26,6 @@ const communitySchema = new Schema({
     description: {
         type: String,
     },
-    idUser: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-    },
     status: {
         type: Boolean,
         default: true
