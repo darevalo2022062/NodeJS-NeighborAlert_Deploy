@@ -1,4 +1,5 @@
 import { logger } from './logger.js';
+import User from '../modules/user/user.model.js';
 import { isToken } from './tk-methods.js';
 import { validateUser } from './data-methods.js';
 import { validateAdmin } from './data-methods.js';
