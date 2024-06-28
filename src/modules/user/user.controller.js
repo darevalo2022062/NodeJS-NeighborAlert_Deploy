@@ -4,10 +4,9 @@ import { isToken } from '../../helpers/tk-methods.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { validateAdminRequest } from '../../helpers/controller-checks.js'; 
 import { logger } from '../../helpers/logger.js';
-const log = logger.child({path: 'user/user.controller.js'});
 
 export const getUsers = async (req, res) => {
-    log.info('Start getting users');
+    logger.info('Start getting users');
     const isAdmin = await validateAdminRequest(req, res);
     if (isAdmin) {
         handleResponse(res, User.find({ status: true }));
@@ -17,7 +16,7 @@ export const getUsers = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
-    log.info('Start getting user');
+    logger.info('Start getting user');
     const { id } = req.params;
     const user = await isToken(req, res);
     
@@ -29,7 +28,7 @@ export const getUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-    log.info('Start updating user');
+    logger.info('Start updating user');
     const { id } = req.params;
     const user = await isToken(req, res);
     
@@ -49,7 +48,7 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-    log.info('Start deleting user');
+    logger.info('Start deleting user');
     const { id } = req.params;
     const user = await isToken(req, res);
     

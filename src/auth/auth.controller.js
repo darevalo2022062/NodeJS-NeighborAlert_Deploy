@@ -4,10 +4,9 @@ import User from "../modules/user/user.model.js";
 import Community from '../modules/community/community.model.js';
 import { logger } from "../helpers/logger.js";
 import { validateExistentEmail, validateEmail, validatePassword, validateCodeAccess } from "../helpers/data-methods.js";
-const log = logger.child({path: 'auth/auth.controller.js'});
 
 export const register = async (req, res) => {
-  log.info('Start user registration');
+  logger.info('Start user registration');
   const { name, lastName, phone, email, pass, img, codeAccess } = req.body;
   let role;
   let user;
@@ -38,17 +37,17 @@ export const register = async (req, res) => {
     const salt = bcryptjs.genSaltSync();
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
-    log.info('User registration successful');
+    logger.info('User registration successful');
     res.status(200).json({ user });
 
   } catch (error) {
-    log.error('Error:', error);
+    logger.error('Error:', error);
     res.status(500).json({ error: error.message });
   }
 };
 
 export const login = async (req, res) => {
-  log.info('Start user login');
+  logger.info('Start user login');
   const { email, pass } = req.body;
 
   try {
@@ -70,7 +69,7 @@ export const login = async (req, res) => {
       return res.status(400).send("Upss!, email or password are incorrect.");
     } else {
       const token = await generateJWT(user.id, user.email);
-      log.info('User login successful');
+      logger.info('User login successful');
 
       res.status(200).json({
         msg: "Login ok",
@@ -86,7 +85,7 @@ export const login = async (req, res) => {
       });
     }
   } catch (e) {
-    log.error('Error:', e);
+    logger.error('Error:', e);
     res.status(500).json({
       msg: "Please contact the administrator/support.",
     });

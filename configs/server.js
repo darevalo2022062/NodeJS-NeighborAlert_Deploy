@@ -10,7 +10,6 @@ import communityRoutes from "../src/modules/community/community.routes.js";
 import userRoutes from "../src/modules/user/user.routes.js";
 import commentRoutes from "../src/modules/comment/comment.routes.js";
 import postRoutes from "../src/modules/post/post.routes.js";
-// import routes from 'routes.js';
 
 class Server {
   constructor() {
