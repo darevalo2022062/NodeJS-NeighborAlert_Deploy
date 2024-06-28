@@ -1,24 +1,28 @@
 import Community from './community.model.js';
 import User from '../user/user.model.js';
+import { isToken } from '../../helpers/tk-methods.js';
 import { validateAdminRequest } from '../../helpers/controller-checks.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { logger } from '../../helpers/logger.js';
 import uniqid from 'uniqid';
 
-const logger = logger.child();
+const log = logger.child({path: 'community/community.controller.js'});
 
 const handleCreate = async (res, promise) => {
+    log.info('Start handle create community');
     try {
         const data = await promise;
         res.status(200).json(data);
         await User.findOneAndUpdate({ _id: data.idUser }, { idCommunity: data._id });
+        log.info('Community created successfully');
     } catch (error) {
-        console.error('Error:', error);
+        log.error('Error:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 }
 
 export const createCommunity = async (req, res) => {
+    log.info('Start creating community');
     const user = await isToken(req, res);
     const { name, location, img, description } = req.body;
     var codeAccess;
@@ -43,17 +47,20 @@ export const createCommunity = async (req, res) => {
 };
 
 export const getCommunities = async (req, res) => {
+    log.info('Start getting communities');
     await validateAdminRequest(req, res);
     handleResponse(res, Community.find({ status: true }));
 };
 
 export const getCommunity = async (req, res) => {
+    log.info('Start getting community');
     const { id } = req.params;
     await validateAdminRequest(req, res);
     handleResponse(res, Community.findById(id));
 };
 
 export const updateCommunity = async (req, res) => {
+    log.info('Start updating community');
     const { id } = req.params;
     const { name, location, img } = req.body;
     await validateAdminRequest(req, res);
@@ -62,6 +69,7 @@ export const updateCommunity = async (req, res) => {
 };
 
 export const deleteCommunity = async (req, res) => {
+    log.info('Start deleting community');
     const { id } = req.params;
     await validateAdminRequest(req, res);
     handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));

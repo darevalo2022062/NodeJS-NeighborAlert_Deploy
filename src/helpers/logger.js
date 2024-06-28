@@ -1,25 +1,25 @@
-import { pino } from "pino";
-import pinoPretty from "pino-pretty";
+import pino from 'pino';
+import pinoPretty from 'pino-pretty';
+// import callsites from 'callsites';
+
+// const getCallerDetails = () => {
+//   const stack = callsites(); //get stack trace
+//   const frame = stack[1]; // probable caller of the logger
+//   const filename = frame.getFileName() || 'unknownFile';
+//   const methodName = frame.getFunctionName() || 'unknownMethod';
+
+//   return { filename, methodName};
+// };
 
 export const logger = pino({
-  prettyPrint: {
-    colorize: true,
-    translateTime: "yyyy-mm-dd HH:MM:ss",
-    // Other options
-  },
   base: {
-    moduleName: () => {
-      const frame = pino._getCaller();
-      return frame.filename || 'unknownFile'; 
-    },
-    methodName: () => {
-      const frame = pino._getCaller();
-      return frame.functionName || 'unknownMethod'; 
-    },
+    // moduleName: getCallerDetails().filename,
+    // methodName: getCallerDetails().methodName
   },
-}, pinoPretty());
-
-
+}, pinoPretty({
+  colorize: true,
+  translateTime: "yyyy-mm-dd HH:MM:ss",
+}));
 
 
 //We have diferrent kind of logs, for example, we have logs for request_info,fatal, error, warn, info, debug, and trace.

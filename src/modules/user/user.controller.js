@@ -1,31 +1,14 @@
 import bcryptjs from 'bcryptjs';
 import User from './user.model.js';
-import { validateAdmin } from '../../helpers/data-methods.js';
 import { isToken } from '../../helpers/tk-methods.js';
-
-const handleResponse = (res, promise) => {
-    promise
-        .then(data => res.status(200).json(data))
-        .catch(error => {
-            console.error('Error:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        });
-};
-
-const validateUserRequest = async (req, res) => {
-    try {
-        const user = await isToken(req, res);
-        if (user.role === 'ADMIN') {
-            return true;
-        }
-        return false;  
-    } catch (error) {
-        return res.status(400).json({ error: error.message });
-    }
-};
+import { handleResponse } from '../../helpers/handle-resp.js';
+import { validateAdminRequest } from '../../helpers/controller-checks.js'; 
+import { logger } from '../../helpers/logger.js';
+const log = logger.child({path: 'user/user.controller.js'});
 
 export const getUsers = async (req, res) => {
-    const isAdmin = await validateUserRequest(req, res);
+    log.info('Start getting users');
+    const isAdmin = await validateAdminRequest(req, res);
     if (isAdmin) {
         handleResponse(res, User.find({ status: true }));
     } else {
@@ -34,6 +17,7 @@ export const getUsers = async (req, res) => {
 };
 
 export const getUser = async (req, res) => {
+    log.info('Start getting user');
     const { id } = req.params;
     const user = await isToken(req, res);
     
@@ -45,6 +29,7 @@ export const getUser = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
+    log.info('Start updating user');
     const { id } = req.params;
     const user = await isToken(req, res);
     
@@ -64,6 +49,7 @@ export const updateUser = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
+    log.info('Start deleting user');
     const { id } = req.params;
     const user = await isToken(req, res);
     

@@ -3,9 +3,10 @@ import { validateUserRequest } from '../../helpers/controller-checks.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { logger } from '../../helpers/logger.js';
 
-const childLogger = logger.child();
+const log = logger.child({path: 'comment/comment.controller.js'});
 
 export const createComment = async (req, res) => {
+    log.info('Start creating comment');
     const { idPost, content, anonymous } = req.body;
     const info = await validateUserRequest(req, res);
     anonymous == true ?
@@ -15,12 +16,14 @@ export const createComment = async (req, res) => {
 }
 
 export const getComments = async (req, res) => {
+    log.info('Start getting comments');
     const { idPost } = req.params;
     await validateUserRequest(req, res);
     handleResponse(res, Comment.find({ status: true, idPost: idPost }));
 }
 
 export const updateComment = async (req, res) => {
+    log.info('Start updating comment');
     const { id } = req.params;
     const { content } = req.body;
     await validateUserRequest(req, res);
@@ -28,6 +31,7 @@ export const updateComment = async (req, res) => {
 }
 
 export const deleteComment = async (req, res) => {
+    log.info('Start deleting comment');
     const { id } = req.params;
     await validateUserRequest(req, res);
     handleResponse(res, Comment.findByIdAndUpdate(id, { status: false }, { new: true }));
