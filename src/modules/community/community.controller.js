@@ -1,5 +1,4 @@
 import Community from './community.model.js';
-import User from '../user/user.model.js';
 import { isToken } from '../../helpers/tk-methods.js';
 import { validateAdminRequest, handleCreate } from '../../helpers/controller-checks.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
