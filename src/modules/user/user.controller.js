@@ -12,6 +12,7 @@ export const getUsers = async (req, res) => {
     if (isAdmin) {
         handleResponse(res, User.find({ status: true }));
     } else {
+        logger.error('Access denied, you are not an ADMIN');
         return res.status(403).json({ error: "Access denied, you are not an ADMIN" });
     }
 };
@@ -37,6 +38,7 @@ export const getUser = async (req, res) => {
     if (user.role === 'ADMIN' || user._id.toString() === id) {
         handleResponse(res, User.findById(id));
     } else {
+        logger.error('You can only view your account');
         return res.status(403).json({ error: "You can only view your account" });
     }
 };
@@ -57,6 +59,7 @@ export const updateUser = async (req, res) => {
 
         handleResponse(res, User.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
     } else {
+        logger.error('You can only edit your account');
         return res.status(403).json({ error: "You can only edit your account" });
     }
 };
@@ -69,6 +72,7 @@ export const deleteUser = async (req, res) => {
     if (user._id.toString() === id || user.role === 'ADMIN') {
         handleResponse(res, User.findByIdAndUpdate(id, { status: false }, { new: true }));
     } else {
+        logger.error('You can only delete your account');
         return res.status(403).json({ error: "You can only delete your account" });
     }
 };
