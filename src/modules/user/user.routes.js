@@ -5,9 +5,10 @@ import {
     getUser,
     updateUser,
     deleteUser,
+    enterCommunity
 } from "./user.controller.js";
 import { validateJWT } from "../../middlewares/validate-jwt.js";
-import { validateExistentEmail, validateEmail, validateCommunity, validatePassword} from "../../helpers/data-methods.js";
+import { validateExistentEmail, validateEmail, validateCommunity, validatePassword, validateCodeAccess } from "../../helpers/data-methods.js";
 import { validateFields } from "../../middlewares/validate-fields.js";
 
 const router = Router();
@@ -23,6 +24,16 @@ router.get(
     ],
     getUser
 );
+
+router.put(
+    '/user/community',
+    [
+        validateJWT,
+        check("codeAccess").custom(validateCodeAccess),
+        validateFields,
+    ],
+    enterCommunity
+)
 
 router.put(
     "/:id",

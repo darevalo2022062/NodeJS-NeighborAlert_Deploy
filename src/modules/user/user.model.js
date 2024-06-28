@@ -1,4 +1,4 @@
-import {Schema, model} from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema({
     name: {
@@ -14,7 +14,6 @@ const userSchema = new Schema({
     phone: {
         type: String,
         required: true,
-        unique: true,
         trim: true
     },
     email: {
@@ -28,18 +27,16 @@ const userSchema = new Schema({
         required: true
     },
     img: {
-        type: String,
-        required: true
+        type: String
     },
     role: {
         type: String,
-        enum: ['Sp_ADMIN','ADMIN', 'USER'],
+        enum: ['Sp_ADMIN', 'ADMIN', 'USER'],
         default: 'USER'
     },
     idCommunity: {
         type: Schema.Types.ObjectId,
-        ref: 'Community',
-        // required: true
+        ref: 'Community'
     },
     status: {
         type: Boolean,
