@@ -22,7 +22,7 @@ function findProjectRoot(currentPath) {
   }
 
   if (fs.existsSync(path.join(currentPath, "package.json"))) {      
-    console.log("currentDir TRUE", currentPath);
+    console.log("CurrentDir catched", currentPath);
     return currentPath;
   }
 

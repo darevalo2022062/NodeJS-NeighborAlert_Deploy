@@ -1,23 +1,10 @@
 import Community from './community.model.js';
 import User from '../user/user.model.js';
 import { isToken } from '../../helpers/tk-methods.js';
-import { validateAdminRequest } from '../../helpers/controller-checks.js';
+import { validateAdminRequest, handleCreate } from '../../helpers/controller-checks.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { logger } from '../../helpers/logger.js';
 import uniqid from 'uniqid';
-
-const handleCreate = async (res, promise) => {
-    logger.info('Start handle create community');
-    try {
-        const data = await promise;
-        res.status(200).json(data);
-        await User.findOneAndUpdate({ _id: data.idUser }, { idCommunity: data._id });
-        logger.info('Community created successfully');
-    } catch (error) {
-        logger.error('Error:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-}
 
 export const createCommunity = async (req, res) => {
     logger.info('Start creating community');
