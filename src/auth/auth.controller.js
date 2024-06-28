@@ -1,7 +1,6 @@
 import bcryptjs from "bcryptjs";
 import { generateJWT } from "../helpers/generate-JWT.js";
 import User from "../modules/user/user.model.js";
-import Community from '../modules/community/community.model.js';
 import { logger } from "../helpers/logger.js";
 import axios from "axios";
 

@@ -1,5 +1,6 @@
 import bcryptjs from 'bcryptjs';
 import User from './user.model.js';
+import Community from '../community/community.model.js';
 import { isToken } from '../../helpers/tk-methods.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { validateAdminRequest } from '../../helpers/controller-checks.js'; 
@@ -16,6 +17,7 @@ export const getUsers = async (req, res) => {
 };
 
 export const enterCommunity = async (req, res) => {
+    logger.info('Start entering community');
     const user = await isToken(req, res);
     const { codeAccess } = req.body;
     
