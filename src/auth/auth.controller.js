@@ -28,7 +28,7 @@ export const register = async (req, res) => {
 
     if (email.includes("admin.god.gt")) {
       role = "Sp_ADMIN";
-    } else if (email.includes("admin.org.gt")) {
+    } else if (email.includes(" ")) {
       role = "ADMIN";
     } else {
       role = "USER";
@@ -40,7 +40,6 @@ export const register = async (req, res) => {
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
     logger.info('User registration successful');
-    console.log(img)
     res.status(200).json({ user });
 
   } catch (error) {
@@ -83,6 +82,7 @@ export const login = async (req, res) => {
           img: user.img,
           role: user.role,
           status: user.status,
+          idCommunity: user.idCommunity,
           token: token,
         },
       });

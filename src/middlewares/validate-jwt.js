@@ -2,7 +2,8 @@ import jwt from 'jsonwebtoken'
 import User from '../modules/user/user.model.js'
 
 export const validateJWT = async (req, res, next) => {
-    const token = req.body.token || req.query.token || req.headers['token']
+  const token = req.body.token || req.query.token || req.headers['authorization'];
+  console.log(token)
 
   if (!token) {
     return res.status(401).json({
@@ -12,15 +13,15 @@ export const validateJWT = async (req, res, next) => {
 
   try {
     const { uid } = jwt.verify(token, process.env.PRIVATE_KEY);
-    
+
     const user = await User.findById(uid);
-    if(!user){
+    if (!user) {
       return res.status(400).json({
         msg: 'Invalid token'
       })
     }
 
-    if(user.estado === false){
+    if (user.estado === false) {
       return res.status(400).json({
         msg: 'Invalid token'
       })
@@ -32,7 +33,7 @@ export const validateJWT = async (req, res, next) => {
   } catch (e) {
     console.log(e),
       res.status(500).json({
-        msg: "Upss!, An error ocurred when we try to read token",e
+        msg: "Upss!, An error ocurred when we try to read token",
       });
   }
 }

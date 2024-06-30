@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import User from "../modules/user/user.model.js";
 
 export const isToken = async (req, res) => {
-    const token = req.headers['token'] ;
+    const token = req.headers['authorization'] ;
     if (!token) {
         return res.status(403).json({ msg: 'No token provied.' });
     }
@@ -15,7 +15,7 @@ const verifyToken = async (token, res) => {
         const decoded = jwt.verify(token, process.env.PRIVATE_KEY);
         const user = await User.findOne({_id: decoded.uid});
         if (!user) {return res.status(404).json({ msg: 'The user does not exist.' });
-        } else if (user.estado === false) {return res.status(400).json({ msg: 'The user does not active.'});}
+        } else if (user.status === false) {return res.status(400).json({ msg: 'The user does not active.'});}
         return user;
     } catch (error) {
         if (error.name === 'TokenExpiredError') {

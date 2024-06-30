@@ -5,6 +5,7 @@ import { isToken } from '../../helpers/tk-methods.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { validateAdminRequest } from '../../helpers/controller-checks.js'; 
 import { logger } from '../../helpers/logger.js';
+import { validateCodeAccess } from '../../helpers/data-methods.js';
 
 export const getUsers = async (req, res) => {
     logger.info('Start getting users');

@@ -11,9 +11,10 @@ export const generateJWT = (uid = '', email = '') => {
             {
                 expiresIn: '2h'
             },
-            (err, token)=>{
+            (err, token) => {
+                console.log(err)
                 logger.error('Error:', err);
-                err ? (console.log(err),reject('We have a problem to generate the token')) : resolve(token)
+                err ? (console.log(err), reject('We have a problem to generate the token')) : resolve(token)
             }
         )
         logger.info('JWT generated successfully');

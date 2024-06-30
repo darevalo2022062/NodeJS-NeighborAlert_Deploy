@@ -26,7 +26,7 @@ router.get(
 );
 
 router.put(
-    '/user/community',
+    '/community',
     [
         validateJWT,
         check("codeAccess").custom(validateCodeAccess),
