@@ -1,6 +1,6 @@
 import { Router } from "express"; 
 import { check } from "express-validator"; 
-import { createPost, getMyPost, deletePost, updatePost } from "./post.controller.js"; 
+import { createPost, getMyPost, deletePost, updatePost, getPostByCommunity } from "./post.controller.js"; 
 import { validateJWT } from "../../middlewares/validate-jwt.js";
 import { validateFields } from "../../middlewares/validate-fields.js";
 
@@ -34,6 +34,8 @@ router.put(
     updatePost
 
 )
+
+router.get("/community", validateJWT, getPostByCommunity )
 
 router.get("/", validateJWT, getMyPost);
 

@@ -1,6 +1,6 @@
 import Post from "./post.model.js";
 import { isToken } from "../../helpers/tk-methods.js";
-import { handleResponse } from "../../helpers/handle-resp.js";  
+import { handleResponse } from "../../helpers/handle-resp.js";
 import { validateUserRequest } from "../../helpers/controller-checks.js";
 import { logger } from "../../helpers/logger.js";
 
@@ -25,7 +25,10 @@ export const getPostByCommunity = async (req, res) => {
     logger.info('Start getting post by community');
     await validateUserRequest(req, res);
     const user = await isToken(req, res);
-    handleResponse(res, Post.find({ status: true, idCommunity: user.idCommunity }));
+    handleResponse(res, Post.find({ status: true, idCommunity: user.idCommunity })
+        .populate('idCommunity', 'name')
+        .populate('idUser', 'name lastName img')
+    );
 }
 
 export const updatePost = async (req, res) => {
