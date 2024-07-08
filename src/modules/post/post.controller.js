@@ -9,7 +9,7 @@ export const createPost = async (req, res) => {
     const { idCommunity, title, content, anonymous, category, file } = req.body;
     const info = await validateUserRequest(req, res);
     anonymous == true ?
-        handleResponse(res, Post.create({ idCommunity, title, content, anonymous, category, file }))
+        handleResponse(res, Post.create({ idUser: null, idCommunity, title, content, anonymous, category, file }))
         :
         handleResponse(res, Post.create({ idUser: info.id, idCommunity, title, content, anonymous, category, file }))
 }

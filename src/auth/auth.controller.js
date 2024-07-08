@@ -16,7 +16,6 @@ export const register = async (req, res) => {
   const imgResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, formData);
   const imgURL = imgResponse.data.data.url;
 
-
   let role;
   let user;
   let idCommunity = null;

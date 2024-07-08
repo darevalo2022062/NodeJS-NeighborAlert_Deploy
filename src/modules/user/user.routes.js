@@ -36,23 +36,19 @@ router.put(
 )
 
 router.put(
-    "/:id",
+    "/",
     [
         validateJWT,
         check("pass").custom(validatePassword),
-        check("idCommunity").custom(validateCommunity),
+        check("codeAccess").custom(validateCodeAccess),
         validateFields,
     ],
     updateUser
 );
 
 router.delete(
-    "/:id",
-    [
-        validateJWT,
-        check("id", "No es un ID válido").isMongoId(),
-
-    ],
+    "/",
+    validateJWT,
     deleteUser
 );
 
