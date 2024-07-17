@@ -10,7 +10,18 @@ export const createRequest = async (req, res) => {
     const user = await isToken(req, res);
     const { idCommunity, message } = req.body;
     await validateUserRequest(req, res);
+    const alreadyRequest = await Request.find({ idUser: user._id, idCommunity: req.body.idCommunity });
+    if (alreadyRequest.length > 0) {
+        logger.error('Request already exists');
+        return res.status(400).json({ message: 'Request already exists' });
+    }
     handleResponse(res, Request.create({ idUser: user._id, idCommunity, message }));
+}
+
+export const getMyRequest = async (req, res) => {
+    logger.info('Start getting my requests');
+    const user = await isToken(req, res);
+    handleResponse(res, Request.find({ idUser: user._id }));
 }
 
 export const getAllRequests = async (req, res) => {
