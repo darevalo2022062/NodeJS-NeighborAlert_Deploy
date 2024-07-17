@@ -10,6 +10,7 @@ import communityRoutes from "../src/modules/community/community.routes.js";
 import userRoutes from "../src/modules/user/user.routes.js";
 import commentRoutes from "../src/modules/comment/comment.routes.js";
 import postRoutes from "../src/modules/post/post.routes.js";
+import requestRoutes from "../src/modules/request/request.routes.js";
 
 class Server {
   constructor() {
@@ -21,6 +22,7 @@ class Server {
     this.userPath = "/neighbor/v1/user";
     this.commentPath = "/neighbor/v1/comment";
     this.postPath = "/neighbor/v1/post"
+    this.requestPath = "/neighbor/v1/request";
 
     this.middlewares();
     this.conectDB();
@@ -37,6 +39,7 @@ class Server {
     this.app.use(this.userPath, userRoutes);
     this.app.use(this.commentPath, commentRoutes);
     this.app.use(this.postPath, postRoutes);
+    this.app.use(this.requestPath, requestRoutes);
   }
 
   middlewares() {

@@ -13,13 +13,15 @@ const requestSchema = new Schema({
     },
     message: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     status: {
         type: String,
         enum: ['Pending', 'Accepted', 'Rejected'],
         default: 'Pending',
-        required: true
+        required: true,
+        trim: true
     }
 }, {
     timestamps: true

@@ -1,5 +1,5 @@
-import User from '../user/user.model';
-import { logger } from '../../helpers/logger';
+import User from '../user/user.model.js';
+import { logger } from '../../helpers/logger.js';
 
 export const makeAdmin = async (id, res) => {
     logger.info('Start making user an admin');
