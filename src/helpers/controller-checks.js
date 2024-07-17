@@ -34,8 +34,9 @@ export const handleCreate = async (res, promise) => {
     logger.info('Start handle create community');
     try {
         const data = await promise;
-        res.status(200).json(data);
-        await User.findOneAndUpdate({ _id: data.idUser }, { idCommunity: data._id });
+        const user = await User.findOneAndUpdate({ _id: data.idUser }, { idCommunity: data._id }, { new: true });
+        res.status(200).json(user);
+
         logger.info('Community created successfully');
     } catch (error) {
         logger.error('Error:', error);
