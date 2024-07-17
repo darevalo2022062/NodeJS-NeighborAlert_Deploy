@@ -11,6 +11,7 @@ import userRoutes from "../src/modules/user/user.routes.js";
 import commentRoutes from "../src/modules/comment/comment.routes.js";
 import postRoutes from "../src/modules/post/post.routes.js";
 import requestRoutes from "../src/modules/request/request.routes.js";
+import { createUserDefault } from "./default-conf.js";
 
 class Server {
   constructor() {
@@ -31,6 +32,7 @@ class Server {
 
   async conectDB() {
     await dbConnection();
+    await createUserDefault();
   }
 
   routes() {
