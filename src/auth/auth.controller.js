@@ -9,6 +9,8 @@ import { validateExistentEmail, validateEmail, validatePassword, validateCodeAcc
 export const register = async (req, res) => {
   logger.info('Start user registration');
   const { name, lastName, phone, email, pass } = req.body;
+  console.log(req.file);
+  console.log(name, lastName, phone, email, pass);
   const img = req.file;
   const formData = new FormData();
   formData.append('image', img.buffer.toString('base64'));
