@@ -25,6 +25,15 @@ export const validateAdmin = async (id) => {
     return userData;
 }
 
+export const validateSPAdmin = async (id) => {
+    const user = await User.findById(id);
+    if (!user) { throw new Error('User not found') }
+    if (!user.status) { throw new Error('User is not active') }
+    if (user.role !== 'Sp_ADMIN') { throw new Error('User is not an administrator') }
+    const userData = { id: user.id, name: user.name, email: user.email, role: user.role };
+    return userData;
+}
+
 export const validateCodeAccess = async (code) => {
     const community = await Community.findOne({ codeAccess: code });
     if (!community) { throw new Error('Community dont exists or code is incorrect') }
