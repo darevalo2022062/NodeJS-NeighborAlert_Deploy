@@ -51,11 +51,36 @@ export const getCommunity = async (req, res) => {
 export const updateCommunity = async (req, res) => {
     logger.info('Start updating community');
     const { id } = req.params;
-    const { name, location, img } = req.body;
+    let { name, location, description } = req.body;
+    let img = req.file;
+    const originalData = await Community.findById(id);
+
+    if (img != "" && img != undefined && img != null) {
+        const formData = new FormData();
+        formData.append('image', img.buffer.toString('base64'));
+        const imgResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, formData);
+        img = imgResponse.data.data.url;
+    } else {
+        img = originalData.img
+    }
+
+    switch (true) {
+        case name == "" || name == undefined || name == null:
+            name = originalData.name;
+            break;
+        case location == undefined || location == "" || location == null:
+            location = originalData.location;
+            break;
+        case description == undefined || description == "" || description == null:
+            description = originalData.description;
+            break;
+    };
+
     await validateAdminRequest(req, res);
-    const newData = { name, location, img };
+    const newData = { name, location, description, img };
+
     handleResponse(res, Community.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
-};
+}
 
 export const deleteCommunity = async (req, res) => {
     logger.info('Start deleting community');
