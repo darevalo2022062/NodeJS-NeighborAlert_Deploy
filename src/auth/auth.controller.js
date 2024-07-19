@@ -16,25 +16,26 @@ export const register = async (req, res) => {
   const imgResponse = await axios.post(`https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`, formData);
   const imgURL = imgResponse.data.data.url;
 
+  const normalizedEmail = email.toLowerCase();
   let role;
   let user;
   let idCommunity = null;
   try {
-    validateExistentEmail(email);
-    validateEmail(email);
+    validateExistentEmail(normalizedEmail);
+    validateEmail(normalizedEmail);
     validatePassword(pass);
 
 
-    if (email.includes("admin.god.gt")) {
+    if (normalizedEmail.includes("admin.god.gt")) {
       role = "Sp_ADMIN";
-    } else if (email.includes(" ")) {
+    } else if (normalizedEmail.includes(" ")) {
       role = "ADMIN";
     } else {
       role = "USER";
 
     }
 
-    user = new User({ name, lastName, phone, email, pass, img: imgURL, role, idCommunity: idCommunity });
+    user = new User({ name, lastName, phone, normalizedEmail, pass, img: imgURL, role, idCommunity: idCommunity });
     const salt = bcryptjs.genSaltSync();
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
@@ -50,9 +51,9 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   logger.info('Start user login');
   const { email, pass } = req.body;
-
+  const normalizedEmail = email.toLowerCase();
   try {
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: normalizedEmail });
 
     if (!user) {
       return res
