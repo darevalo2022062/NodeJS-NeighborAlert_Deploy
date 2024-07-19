@@ -39,14 +39,12 @@ export const createCommunity = async (req, res) => {
 
 export const getCommunities = async (req, res) => {
     logger.info('Start getting communities');
-    await validateAdminRequest(req, res);
     handleResponse(res, Community.find({ status: true }));
 };
 
 export const getCommunity = async (req, res) => {
     logger.info('Start getting community');
     const { id } = req.params;
-    await validateAdminRequest(req, res);
     handleResponse(res, Community.findById(id));
 };
 
