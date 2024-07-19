@@ -3,7 +3,6 @@ import User from '../modules/user/user.model.js'
 
 export const validateJWT = async (req, res, next) => {
   const token = req.body.token || req.query.token || req.headers['authorization'];
-  console.log(token)
 
   if (!token) {
     return res.status(401).json({

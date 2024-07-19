@@ -17,7 +17,9 @@ export const getComments = async (req, res) => {
     logger.info('Start getting comments');
     const { idPost } = req.params;
     await validateUserRequest(req, res);
-    handleResponse(res, Comment.find({ status: true, idPost: idPost }));
+    handleResponse(res, Comment.find({ status: true, idPost: idPost })
+        .populate('idUser', 'name lastName img')
+    );
 }
 
 export const updateComment = async (req, res) => {
