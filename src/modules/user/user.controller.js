@@ -65,7 +65,46 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
     logger.info('Start deleting user');
-    const user = await isToken(req, res);
-    await validateSPAdminRequest(req, res);
-    handleResponse(res, User.findByIdAndUpdate(user._id, { status: false }, { new: true }));
+    const { id } = req.params;
+    const SPA = await validateSPAdminRequest(req, res);
+    const ADM = await validateAdminRequest(req, res);
+    const user = await User.findById(id);
+    if (SPA) {
+        handleResponse(res, User.findByIdAndUpdate(id, { status: false }, { new: true }));
+    }
+    if (ADM && ADM.idCommunity === user.idCommunity && user.role === 'USER') {
+        handleResponse(res, User.findByIdAndUpdate(id, { status: false }, { new: true }));
+    }
 };
+
+export const degradeUser = async (req, res) => {
+    logger.info('Start deleting user');
+    const { id } = req.params;
+    const SPA = await validateSPAdminRequest(req, res);
+    const ADM = await validateAdminRequest(req, res);
+    const user = await User.findById(id);
+    if (SPA) {
+        handleResponse(res, User.findByIdAndUpdate(id, { role: "USER" }, { new: true }));
+    }
+    if (ADM && ADM.idCommunity === user.idCommunity && user.role === 'USER') {
+        handleResponse(res, User.findByIdAndUpdate(id, { idCommunity: null }, { new: true }));
+    }
+};
+
+export const getAdmins = async (req, res) => {
+    logger.info('Start getting admins');
+    await validateSPAdminRequest(req, res);
+    handleResponse(res, User.find({ role: 'ADMIN', status: true }));
+}
+
+export const getUsersByCommunity = async (req, res) => {
+    logger.info('Start getting users by community');
+    const user = await isToken(req, res);
+    validateAdminRequest(req, res);
+    if (user.role === 'ADMIN') {
+        handleResponse(res, User.find({ idCommunity: user.idCommunity, status: true }));
+    } else {
+        logger.error('You are not ADMIN');
+        return res.status(403).json({ error: "You are not ADMIN" });
+    }
+}
