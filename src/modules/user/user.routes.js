@@ -5,7 +5,10 @@ import {
     getUser,
     updateUser,
     deleteUser,
-    enterCommunity
+    enterCommunity,
+    degradeUser,
+    getAdmins,
+    getUsersByCommunity
 } from "./user.controller.js";
 import { validateJWT } from "../../middlewares/validate-jwt.js";
 import { validateExistentEmail, validateEmail, validateCommunity, validatePassword, validateCodeAccess } from "../../helpers/data-methods.js";
@@ -50,6 +53,32 @@ router.delete(
     "/",
     validateJWT,
     deleteUser
+);
+
+router.get(
+    "/admins",
+    validateJWT,
+    getAdmins
+);
+
+router.get(
+    "/community-users",
+    [
+        validateJWT,
+        check("id", "No es un ID válido").isMongoId(),
+        validateFields,
+    ],
+    getUsersByCommunity
+);
+
+router.put(
+    "/degrade",
+    [
+        validateJWT,
+        check("id", "No es un ID válido").isMongoId(),
+        validateFields,
+    ],
+    degradeUser
 );
 
 export default router;
