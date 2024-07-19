@@ -45,7 +45,7 @@ export const register = async (req, res) => {
     console.log("pass", pass);
     console.log("imgURL", imgURL);
 
-    user = new User({ name, lastName, phone, normalizedEmail, pass, img: imgURL, role, idCommunity: idCommunity });
+    user = new User({ name, lastName, phone, email: normalizedEmail, pass, img: imgURL, role, idCommunity: idCommunity });
     const salt = bcryptjs.genSaltSync();
     user.pass = bcryptjs.hashSync(pass, salt);
     await user.save();
