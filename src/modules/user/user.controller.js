@@ -48,7 +48,7 @@ export const updateUser = async (req, res) => {
     logger.info('Start updating user');
     const user = await isToken(req, res);
 
-    const { name, lastName, phone, pass, img, idCommunity } = req.body;
+    const { id, name, lastName, phone, pass, img, idCommunity } = req.body;
     const newData = { name, lastName, phone, img, idCommunity };
 
     if (user.role === 'Sp_ADMIN' || user._id.toString() === id) {
@@ -56,7 +56,7 @@ export const updateUser = async (req, res) => {
             const salt = bcryptjs.genSaltSync();
             newData.pass = bcryptjs.hashSync(pass, salt);
         }
-        handleResponse(res, User.findOneAndUpdate({ _id: user._id, status: true }, { $set: newData }, { new: true }));
+        handleResponse(res, User.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
     } else {
         logger.error('You can only edit your account');
         return res.status(403).json({ error: "You can only edit your account" });
