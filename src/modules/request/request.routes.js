@@ -20,9 +20,6 @@ router.post(
     "/create",
     [
         validateJWT,
-        check("idCommunity")
-            .not().isEmpty().withMessage("idCommunity is required")
-            .isMongoId().withMessage("idCommunity must be a valid ID"),
         check("message", "message is required").not().isEmpty(),
         validateFields,
     ],

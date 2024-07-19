@@ -9,7 +9,7 @@ const requestSchema = new Schema({
     idCommunity: {
         type: Schema.Types.ObjectId,
         ref: 'Community',
-        required: true
+        required: false
     },
     message: {
         type: String,

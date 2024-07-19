@@ -8,14 +8,14 @@ import { makeAdmin, makeUser } from './request.utils.js';
 export const createRequest = async (req, res) => {
     logger.info('Start creating request');
     const user = await isToken(req, res);
-    const { idCommunity, message } = req.body;
+    const { message } = req.body;
     await validateUserRequest(req, res);
-    const alreadyRequest = await Request.find({ idUser: user._id, idCommunity: req.body.idCommunity });
+    const alreadyRequest = await Request.find({ idUser: user._id });
     if (alreadyRequest.length > 0) {
         logger.error('Request already exists');
         return res.status(400).json({ message: 'Request already exists' });
     }
-    handleResponse(res, Request.create({ idUser: user._id, idCommunity, message }));
+    handleResponse(res, Request.create({ idUser: user._id, message }));
 }
 
 export const getMyRequest = async (req, res) => {
