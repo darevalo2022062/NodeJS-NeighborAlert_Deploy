@@ -10,13 +10,14 @@ export const createPost = async (req, res) => {
     const { idCommunity, title, content, anonymous, category } = req.body;
     const info = await validateUserRequest(req, res);
 
-    const fileUrls = await uploadImagesToImgbb(req.files);
-    console.log("🚀 ~ createPost ~ fileUrls:", fileUrls)
+    const isAnonymous = Boolean(anonymous === 'true');
 
-    const postData = anonymous ?
-        { idUser: null, idCommunity, title, content, anonymous, category, file: fileUrls }
+    const fileUrls = await uploadImagesToImgbb(req.files);
+
+    const postData = isAnonymous ?
+        { idUser: null, idCommunity, title, content, anonymous: isAnonymous, category, file: fileUrls }
         :
-        { idUser: info.id, idCommunity, title, content, anonymous, category, file: fileUrls };
+        { idUser: info.id, idCommunity, title, content, anonymous: isAnonymous, category, file: fileUrls };
 
     handleResponse(res, Post.create(postData));
 };
@@ -25,7 +26,8 @@ export const getMyPost = async (req, res) => {
     logger.info('Start getting my post');
     await validateUserRequest(req, res);
     const user = await isToken(req, res);
-    handleResponse(res, Post.find({ status: true, idUser: user._id }));
+    handleResponse(res, Post.find({ status: true, idUser: user._id })
+        .populate('idUser', 'name lastName img'));
 };
 
 export const getPostByCommunity = async (req, res) => {
