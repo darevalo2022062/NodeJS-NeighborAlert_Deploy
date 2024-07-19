@@ -1,7 +1,7 @@
 import Community from './community.model.js';
 import User from '../user/user.model.js';
 import { isToken } from '../../helpers/tk-methods.js';
-import { validateAdminRequest, handleCreate } from '../../helpers/controller-checks.js';
+import { validateAdminRequest, handleCreate, validateSPAdminRequest } from '../../helpers/controller-checks.js';
 import { handleResponse } from '../../helpers/handle-resp.js';
 import { logger } from '../../helpers/logger.js';
 import uniqid from 'uniqid';
@@ -60,6 +60,15 @@ export const updateCommunity = async (req, res) => {
 export const deleteCommunity = async (req, res) => {
     logger.info('Start deleting community');
     const { id } = req.params;
-    await validateAdminRequest(req, res);
-    handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
+    const user = await isToken(req, res);
+    const ADM = await validateAdminRequest(req, res);
+    const SPA = await validateSPAdminRequest(req, res);
+    if (SPA) {
+        handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
+    }else if (ADM && user.idCommunity.toString() === id) {
+        handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
+    }else {
+        logger.error('You can only delete your community');
+        return res.status(403).json({ error: "You can only delete your community" });
+    }
 };
