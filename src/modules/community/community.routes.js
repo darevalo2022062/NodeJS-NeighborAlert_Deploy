@@ -26,11 +26,8 @@ router.get("/:id", validateJWT, getCommunity);
 router.put(
     "/:id",
     [
-        validateJWT,
-        check("name", "Name is required").not().isEmpty(),
-        check("location", "Location is required").not().isEmpty(),
-        check("img", "Image is required").not().isEmpty(),
-        validateFields,
+        upload.single('img'),
+        validateJWT
     ],
     updateCommunity
 );
