@@ -27,6 +27,7 @@ export const register = async (req, res) => {
     validateEmail(normalizedEmail);
     validatePassword(pass);
 
+    console.log("Aun esta bien");
 
     if (normalizedEmail.includes("admin.god.gt")) {
       role = "Sp_ADMIN";
@@ -36,6 +37,13 @@ export const register = async (req, res) => {
       role = "USER";
 
     }
+
+    console.log("name", name);
+    console.log("lastName", lastName);
+    console.log("phone", phone);
+    console.log("normalizedEmail", normalizedEmail);
+    console.log("pass", pass);
+    console.log("imgURL", imgURL);
 
     user = new User({ name, lastName, phone, normalizedEmail, pass, img: imgURL, role, idCommunity: idCommunity });
     const salt = bcryptjs.genSaltSync();
