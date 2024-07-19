@@ -27,7 +27,7 @@ export const getMyRequest = async (req, res) => {
 export const getAllRequests = async (req, res) => {
     logger.info('Start getting requests');
     await validateAdminRequest(req, res);
-    handleResponse(res, Request.find());
+    handleResponse(res, Request.find().populate('idUser', 'name lastName'));
 }
 
 export const getRequestsPending = async (req, res) => {
@@ -51,7 +51,6 @@ export const getRequestsRejected = async (req, res) => {
 export const acceptRequest = async (req, res) => {
     logger.info('Start accepting request');
     const { id } = req.params;
-    await validateAdminRequest(req, res);
     const request = await Request.findById(id);
     if (!request) {
         logger.error('Request not found');
