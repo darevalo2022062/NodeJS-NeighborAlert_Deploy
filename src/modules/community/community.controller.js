@@ -82,18 +82,24 @@ export const updateCommunity = async (req, res) => {
     handleResponse(res, Community.findOneAndUpdate({ _id: id, status: true }, { $set: newData }, { new: true }));
 }
 
-export const deleteCommunity = async (req, res) => {
+export const deleteCommunitySPA = async (req, res) => {
     logger.info('Start deleting community');
     const { id } = req.params;
+    await validateSPAdminRequest(req, res);
+    handleDelete(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
+};
+
+export const deleteCommunityAdmin = async (req, res) => {
+    logger.info('Start deleting community');
     const user = await isToken(req, res);
-    const ADM = await validateAdminRequest(req, res);
-    const SPA = await validateSPAdminRequest(req, res);
-    if (SPA) {
-        handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
-    }else if (ADM && user.idCommunity.toString() === id) {
-        handleResponse(res, Community.findByIdAndUpdate(id, { status: false }, { new: true }));
+    await validateAdminRequest(req, res);
+
+    if (user.idCommunity.toString() === id) {
+        await Community.findByIdAndUpdate(user.idCommunity, { status: false }, { new: true });
+        res.status(200).json(user);
+        logger.info('Community deleted successfully');
     }else {
         logger.error('You can only delete your community');
         return res.status(403).json({ error: "You can only delete your community" });
     }
-};
+}

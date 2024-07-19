@@ -3,7 +3,7 @@ import { check } from "express-validator";
 import { validateJWT } from "../../middlewares/validate-jwt.js";
 import { validateFields } from "../../middlewares/validate-fields.js";
 import upload from '../../middlewares/uploadMiddlewares.js';
-import { createCommunity, getCommunities, getCommunity, updateCommunity, deleteCommunity } from "./community.controller.js";
+import { createCommunity, getCommunities, getCommunity, updateCommunity, deleteCommunityAdmin, deleteCommunitySPA } from "./community.controller.js";
 
 const router = Router();
 
@@ -32,6 +32,8 @@ router.put(
     updateCommunity
 );
 
-router.delete("/:id", validateJWT, deleteCommunity);
+router.delete("/:id", validateJWT, deleteCommunityAdmin);
+
+router.delete("/spa/:id", validateJWT, deleteCommunitySPA);
 
 export default router;
